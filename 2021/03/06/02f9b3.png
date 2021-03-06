@@ -1,0 +1,165 @@
+--不用那么过分吧。。。。找了半天的代码
+function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {}  local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true  end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base  local num = Search[k][1]  for i, v in ipairs(result) do tmp[#tmp+1] = {}  tmp[#tmp].address = v.address + offset   tmp[#tmp].flags = v.flags   end tmp = gg.getValues(tmp)  for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then  result[i].isUseful = false  end end end for i, v in ipairs(result) do if (v.isUseful) then  data[#data+1] = v.address end end if (#data > 0) then gg.toast("搜索到"..#data.."条数据") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else gg.toast("not found", false) return false end else gg.toast("Not Found") return false end end
+function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2]  if (count > 0) then  for i, v in ipairs(result) do v.isUseful = true  end  for k=2, #Search do local tmp = {} local offset = Search[k][2] - base  local num = Search[k][1]  for i, v in ipairs(result) do tmp[#tmp+1] = {}  tmp[#tmp].address = v.address + offset    tmp[#tmp].flags = v.flags   end tmp = gg.getValues(tmp)   for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then   result[i].isUseful = false   end end end  for i, v in ipairs(result) do if (v.isUseful) then  data[#data+1] = v.address  end  end if (#data > 0) then  gg.toast("搜索到"..#data.."条数据") local t = {}  local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do  offset = w[2] - base  t[#t+1] = {}  t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then  local item = {}  item[#item+1] = t[#t]  item[#item].freeze = true  gg.addListItems(item) end   end  end  gg.setValues(t) else  gg.toast("not found", false)  return false end else gg.toast("Not Found") return false end end
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) xgsl = xgsl + 1 end end function xqmnb(qmnb) gg.clearResults() gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "开启失败") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "开启失败") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) xgjg = true end end if xgjg == true then gg.toast(qmnb[2]["name"] .. "开启成功,共修改" .. xgsl .. "条数据") else gg.toast(qmnb[2]["name"] .. "开启失败") end end end end
+
+local Choice = gg.choice
+local Toast = gg.toast
+local IsVisible = gg.isVisible
+local SetVisible = gg.setVisible
+local Sleep = gg.sleep
+local Toggle = 1  --标识符
+local On = "[⚡点击开启功能⚡]" 
+local Off = "[🌙点击关闭功能🌙]"
+local SwitchA = On   
+local SwitchB = On
+local SwitchC = On
+local SwitchD = On
+local SwitchE = On
+if IsVisible(true) then
+SetVisible(false)
+end
+
+function ToggleMenu()
+Menu = Choice({
+"💈基础棍法💈"..SwitchA,
+"💈韦陀棍法💈"..SwitchB,
+"💈普门杖法💈"..SwitchC,
+"🌵紧那罗棍🌵"..SwitchE,
+"🅿退出脚本🅿"..SwitchD,
+}, nil, "食用方法:懂得自然懂，不懂会卡退哦。")
+if Menu == 1 then
+Hack = "B"
+if SwitchA == On then
+SwitchA = Off
+HackFunction(true)
+else
+SwitchA = On
+HackFunction(false)
+end
+
+elseif Menu == 2 then
+Hack = "A"
+if SwitchB == On then
+SwitchB = Off
+HackFunction(true)
+else
+SwitchB = On
+HackFunction(false)
+end
+
+elseif Menu == 3 then
+Hack = "C"
+if SwitchC == On then
+SwitchC = Off
+HackFunction(true)
+else
+SwitchC = On
+HackFunction(false)
+end
+
+elseif Menu == 4 then
+Hack = "E"
+if SwitchE == On then
+SwitchE = Off
+HackFunction(true)
+else
+SwitchE = On
+HackFunction(false)
+end
+
+elseif Menu == 5 then
+Hack = "D"
+if SwitchD == On then
+HackFunction(true)
+end
+
+end
+Toggle =-1
+end
+
+function HackFunction(ToF)
+if Hack == "A" then 
+if ToF == true then 
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21021, 0}, {9, 24}, {215, 496}, }
+local tb2 = {{0, 24}, {0, 360}, {39999, 496}, }
+SearchWrite(tb1, tb2, dataType)
+else
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21021, 0}, {0, 24}, {39999, 496}, }
+local tb2 = {{9, 24}, {2, 360}, {215, 496}, }
+SearchWrite(tb1, tb2, dataType)
+end
+
+elseif Hack == "B" then
+if ToF == true then
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{20041, 0}, {10, 24}, {60, 496}, }
+local tb2 = {{0, 24}, {0, 360}, {39999, 496}, }
+SearchWrite(tb1, tb2, dataType)
+else
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{20041, 0}, {0, 24}, {39999, 496}, }
+local tb2 = {{10, 24}, {1, 360}, {60, 496}, }
+SearchWrite(tb1, tb2, dataType)
+end
+
+elseif Hack == "C" then
+if ToF == true then
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21074, 0}, {10, 96}, {480, 568}, }
+local tb2 = {{21074, 0, true}, {0, 96}, {0, 432}, {49999, 568}, }
+SearchWrite(tb1, tb2, dataType)
+else
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21074, 0}, {0, 96}, {49999, 568}, }
+local tb2 = {{10, 96}, {3, 432}, {480, 568}, }
+SearchWrite(tb1, tb2, dataType)
+end
+
+elseif Hack == "E" then
+if ToF == true then
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21141, 0}, {10, 24}, {750, 496}, }
+local tb2 = {{0, 24}, {0, 360}, {69999, 496}, }
+SearchWrite(tb1, tb2, dataType)
+else
+gg.setRanges(32)
+local dataType = 4
+local tb1 = {{21141, 0}, {0, 24}, {69999, 496}, }
+local tb2 = {{10, 24}, {4, 360}, {750, 496}, }
+SearchWrite(tb1, tb2, dataType)
+end
+
+elseif Hack == "D" then
+if ToF == true then
+os.exit()
+end
+
+else 
+end
+end
+
+ToggleMenu()
+
+while true do
+if IsVisible(true) then
+SetVisible(false)
+Toggle = 1
+end
+Sleep(100)
+if Toggle == 1 then
+ToggleMenu()
+end
+end
+
+
+
