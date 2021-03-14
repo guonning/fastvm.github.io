@@ -1,0 +1,658 @@
+
+
+
+
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]['offset'] xglx = qmxg[x]['type'] xgsz = qmxg[x]['value'] xgdj = qmxg[x]['freeze'] if xgdj == nil or xgdj == '' then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setRanges(qmnb[1]['memory']) gg.searchNumber(qmnb[3]['value'], qmnb[3]['type']) if gg.getResultCount() == 0 then gg.toast(qmnb[2]['name'] .. '修改失败') else gg.refineNumber(qmnb[3]['value'], qmnb[3]['type']) gg.refineNumber(qmnb[3]['value'], qmnb[3]['type']) gg.refineNumber(qmnb[3]['value'], qmnb[3]['type']) if gg.getResultCount() == 0 then gg.toast(qmnb[2]['name'] .. '修改失败') else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]['offset'] pysz[1].flags = qmnb[v]['type'] szpy = gg.getValues(pysz) pdpd = qmnb[v]['lv'] .. ';' .. szpy[1].value szpd = split(pdpd, ';') tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]['name'] .. '修改成功,共修改' .. xgsl .. '条数据') else gg.toast(qmnb[2]['name'] .. '修改失败') end end end end
+
+local app = {}
+function Assert(data)   --判断
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memorya, arrayi)   --判断
+if Assert(memorya) and Assert(arrayi) then
+return true
+else
+return false
+end
+end
+function typetab(arrayi, type)   --把所有类型组成一个数组防不写类型
+local datatype = {}
+for i = 1, #arrayi do
+if Assert(arrayi[i].type) then
+table.insert(datatype, i, arrayi[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memoryasearch(memorya, arrayi, type)   --内存搜索，参数为(内存， 特征码数组， 类型(类型可空))
+gg.setVisible(false)
+local isok = mearrass(memorya, arrayi)
+if isok then
+local isok, datatype = typetab(arrayi, type)
+if isok then
+if Assert(arrayi[1].hv) then   --判断主特征码是否有hv，有即范围搜索
+gg.clearResults()
+gg.setRanges(memorya)
+gg.searchNumber(arrayi[1].lm .. "~" .. arrayi[1].hv, datatype[1])   --有hv进行范围搜索
+else
+gg.clearResults()
+gg.setRanges(memorya)
+gg.searchNumber(arrayi[1].lm, datatype[1])   --普通搜索
+end
+if gg.getResultCount() == 0 then   --判断搜索到值没
+return false   --没搜到值返回false
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())   --保存搜索到的数据到data
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true   --把搜索到的值，全部设置为true
+end
+for i = 2, #arrayi do
+local t = {}
+local offset = arrayi[i].offset
+for x = 1, #data do   --遍历内存
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(arrayi[i].hv) then   --判断副特征码是否有hv参数
+if tonumber(t[z].value) < tonumber(arrayi[i].lm) or tonumber(t[z].value) > tonumber(arrayi[i].hv) then
+--↑↑↑进行范围判断
+data[z].isok = false   --不符合条件的设置为false
+end
+else
+if tostring(t[z].value) ~= tostring(arrayi[i].lm) then   --普通判断(没有hv参数)
+data[z].isok = false   --不符合设置为false
+end
+end
+end
+end
+for i = 1, #data do   --重新遍历数组
+if data[i].isok then   --判断是否为true(符合条件的)
+tab[#tab + 1] = data[i].address   --把符合条件的地址写入数组
+end
+end
+if #tab > 0 then   --判断地址数组是否大于0，大于0就是搜到了符合条件的值，反之没搜到
+return true, tab   --搜到返回true和地址数组
+else
+return false   --没搜到返回false
+end
+end
+else
+print("type参数错误")   --类型错误
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memorya or arrayi参数错误")   --内存或类型错误
+gg.toast("memorya or arrayi参数错误")
+os.exit()
+
+
+end
+end
+function app.memoryaread(addr, type)   --读内存，参数为(地址，类型)
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return true, gg.getValues(t)[1].value   --读到返回true和读到得值
+else
+return false   --反之返回false
+end
+end
+function app.memoryawrite(addr, type, value, freeze)   --写内存，参数为(地址，类型，写入得值，是否冻结(可空))
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then   --判断是否有冻结参数
+t[1].freeze = freeze
+--gg.setValues(t)   --这行自行选择，如果有这行，false会修改并保存到列表，如果没这行，false只会保存到列表而不会修改
+return gg.addListItems(t)   --成功返回true
+else
+return gg.setValues(t)   --成功返回true
+end
+else
+return false   --失败
+end
+end
+--↓↓↓用上边的代码进行二次封装出来的指针写法
+
+qmnb = function(daarr)
+local array = {}
+for i = 1, #daarr["搜索数组"] do
+local data = {["lm"] = daarr["搜索数组"][i][1], ["offset"] = daarr["搜索数组"][i][2], ["type"] = daarr["搜索类型"]}
+table.insert(array, i, data)
+end
+local isok, data = app.memorysearch(daarr["搜索内存"], array)
+if isok then
+for i = 1, #data do
+for x = 1, #daarr["修改数组"] do
+app.memorywrite(data[i] + daarr["修改数组"][x][2], daarr["搜索类型"], daarr["修改数组"][x][1])
+end
+end
+gg.toast(daarr["功能名称"] .. "开启成功，共修改" .. #data * #daarr["修改数组"] .. "条数据")
+else
+gg.toast(daarr["功能名称"] .. "开启失败")
+end
+end
+---------下面脚本
+
+
+function Main()
+  Menu = gg.choice({
+  "防追封(登录界面)",
+  "天线(出生岛)",
+  "锁甲(出生岛)",
+  "锁油(登录界面)",
+  "范围无后(登录界面)",
+  "通用透视(靶场)",
+  "低头换弹(登录界面)",
+  "范围拾取(靶场)",
+  "零秒打药(登录界面)",
+  "死了还能跑(大厅)",
+  "速飞(登录界面)",
+  "全枪自瞄(靶场)",
+  "退出"
+ }, nil, " 注意演戏别打的太假")
+  if Menu == 1 then
+    a()
+  end
+  if Menu == 2 then
+  b()
+  end
+    if Menu == 3 then
+  c()
+  end
+    if Menu == 4 then
+  d()
+  end
+    if Menu == 5 then
+  e()
+  end
+    if Menu == 6 then
+  f()f1()
+  end
+    if Menu == 7 then
+  g()
+  end
+    if Menu == 8 then
+  h()
+  end
+    if Menu == 9 then
+  i()
+  end
+    if Menu == 10 then
+  j()
+  end
+    if Menu == 11 then
+  k()
+  end
+    if Menu == 12 then
+  l()
+  end
+   if Menu == 13 then
+   Exit()
+  end
+  XGCK = -1
+end
+
+function a()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 25362443, ["type"] = 4},
+{["lm"] = 8656128 , ["offset"] = 4, ["type"] = 4},
+{["lm"] = 811520, ["offset"] = 8, ["type"] = 4},
+{["lm"] = -2097149324 , ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 12, 4, -2097149324)
+end
+gg.toast("防封第一步开启成功")
+else
+gg.toast("防封第一步开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1728088958, ["type"] = 4},
+{["lm"] = 90308608, ["offset"] = 8, ["type"] = 4},
+{["lm"] = 549376, ["offset"] = 12, ["type"] = 4},
+{["lm"] = 1845495929, ["offset"] = 16, ["type"] = 4},
+{["lm"] = 25427968, ["offset"] = 20, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 16, 4, 1845495999)
+end
+gg.toast("防封第二步开启成功")
+else
+gg.toast("防封第二步开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1728054119, ["type"] = 4},
+{["lm"] = 42139652 , ["offset"] = 4, ["type"] = 4},
+{["lm"] = 1795162983, ["offset"] = 16, ["type"] = 4},
+{["lm"] = 389611525 , ["offset"] = 24, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 0, 4, -1)
+app.memoryawrite(data[i] + 16, 4, -1)
+end
+gg.toast("防封第三步开启成功")
+else
+gg.toast("防封第三步开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 25362443, ["type"] = 4},
+{["lm"] = 8656128 , ["offset"] = 4, ["type"] = 4},
+{["lm"] = 811520, ["offset"] = 8, ["type"] = 4},
+{["lm"] = -2097149324 , ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 12, 4, -2097149324)
+end
+gg.toast("防封第四步开启成功")
+else
+gg.toast("防封第四步开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 83886439, ["type"] = 4},
+{["lm"] = 23527425, ["offset"] = -12, ["type"] = 4},
+{["lm"] = 1728081776, ["offset"] = -20, ["type"] = 4},
+{["lm"] = 25344, ["offset"] = -24, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + -20, 4, 1882088818)
+end
+gg.toast("防封第五步开启成功")
+else
+gg.toast("防封第五步开启失败")
+end
+end
+
+
+function b()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1065302314, ["type"] = 4},
+{["lm"] = 1033857818 , ["offset"] = 8, ["type"] = 4},
+{["lm"] = 1065353216, ["offset"] = 20, ["type"] = 4},
+{["lm"] = -1113625830, ["offset"] = 32, ["type"] = 4},
+{["lm"] = 1065302314, ["offset"] = 40, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 20, 4, 1176242176)
+end
+gg.toast("女天线开启成功")
+else
+gg.toast("女天线开启失败")
+end
+
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = -1117303261, ["type"] = 4},
+{["lm"] = 979430248 , ["offset"] = 4, ["type"] = 4},
+{["lm"] = -1129590894, ["offset"] = 8, ["type"] = 4},
+{["lm"] = 1065353216, ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 12, 4, 1176243200)
+end
+gg.toast("男天线开启成功")
+else
+gg.toast("男天线开启失败")
+end
+end
+
+function c()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+ gg.searchNumber("1D;0F;0F;0F;0F;1F;0F;0.1::29", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("锁甲开启失败")
+else
+ gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(300)
+gg.editAll("0.6", gg.TYPE_FLOAT)
+gg.toast("锁甲开启成功")
+end
+end
+
+
+function e()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 700, ["type"] = 64},
+{["lm"] = -72 , ["offset"] = -8, ["type"] = 1},
+{["lm"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 4, 16, 5.232421875)
+end
+gg.toast("无后开启成功")
+else
+gg.toast("无后开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 700, ["type"] = 64},
+{["lm"] = -24 , ["offset"] = -8, ["type"] = 1},
+{["lm"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 4, 16, 5.232421875)
+end
+gg.toast("无后开启成功")
+else
+gg.toast("无后开启失败")
+end
+
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 700, ["type"] = 64},
+{["lm"] = 2 , ["offset"] = -8, ["type"] = 1},
+{["lm"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 4, 16, 5.232421875)
+end
+gg.toast("无后开启成功")
+else
+gg.toast("无后开启失败")
+end
+end
+
+function d()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1073322393, ["type"] = 4},
+{["lm"] = 1069128089, ["offset"] = 16, ["type"] = 4},
+{["lm"] = 1071225241, ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 12, 64, 900)
+end
+gg.toast("锁油撞人开启成功")
+else
+gg.toast("锁油撞人开启失败")
+end
+end
+
+function f()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("4939D;2;0.99900001287::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() ==0 then
+  gg.toast("透视第一步开启失败")
+else
+gg.searchNumber("2;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("20.1", gg.TYPE_FLOAT)
+gg.toast("透视第一步开启成功")
+end
+end
+function f1()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("103,256D;2.0F::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() ==0 then
+  gg.toast("透视第二步开启失败")
+else
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("20.1", gg.TYPE_FLOAT)
+gg.toast("透视第二步开启成功")
+end
+end
+
+
+function g()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1.57, ["type"] = 64},
+{["lm"] = 3.14, ["offset"] = -32, ["type"] = 64},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + -64, 64, 5.7)
+end
+gg.toast("低头换单开启成功")
+else
+gg.toast("低头换单开启失败")
+end
+end
+
+
+function h()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1017370378, ["type"] = 4},
+{["lm"] = 1065353216   , ["offset"] = -16, ["type"] = 4},
+{["lm"] = 1073741824  , ["offset"] = 12, ["type"] = 4},
+{["lm"] = 5  , ["offset"] = -32, ["type"] = 4},
+{["lm"] = 25  , ["offset"] = -44, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 12, 16, 5.7)
+end
+gg.toast("范围拾取开启成功")
+else
+gg.toast("范围拾取开启失败")
+end
+end
+
+function j()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 259265792, ["type"] = 4},
+{["lm"] = 1073664, ["offset"] = 4, ["type"] = 4},
+{["lm"] = 8585231, ["offset"] = 12, ["type"] = 4},
+{["lm"] = 352321667, ["offset"] = 20, ["type"] = 4},
+{["lm"] = 1204736, ["offset"] = 32, ["type"] = 4},
+{["lm"] = 1879048323, ["offset"] = 36, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 36, 4, -1)
+end
+gg.toast("倒了快跑开启成功")
+else
+gg.toast("倒了快跑开启失败")
+end
+end
+
+
+function k()
+qmnb = {
+{["memory"] = 4},
+{["name"] = "飞行加速"},
+{["value"] = -0.1, ["type"] = 64},
+{["lv"] = 0.6, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 0.4, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 10, ["offset"] = 48, ["type"] = 64},
+{["lv"] = 0.436, ["offset"] = 80, ["type"] = 64},
+}
+qmxg = {
+{["value"] = 150, ["offset"] = 0, ["type"] = 64},
+}
+xqmnb(qmnb)
+end
+
+
+function i()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1075576832, ["type"] = 4},
+{["lm"] = 1075970048, ["offset"] = 64, ["type"] = 4},
+{["lm"] = 1072693248, ["offset"] = 80, ["type"] = 4},
+{["lm"] = 1078853632, ["offset"] = 96, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 80, 4, 0)
+end
+gg.toast("秒药开启成功")
+else
+gg.toast("秒药开启失败")
+end
+end
+
+
+
+function l()
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1079246848, ["type"] = 4},
+{["lm"] = 1074266112  , ["offset"] = -16, ["type"] = 4},
+{["lm"] = 1071225241    , ["offset"] = -32, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + -32,4, 1176255488)
+end
+gg.toast("自瞄开启成功")
+else
+gg.toast("自瞄开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1079246848, ["type"] = 4},
+{["lm"] = 858993459  , ["offset"] = 12, ["type"] = 4},
+{["lm"] = 1070805811    , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 16,4, 1176255488)
+end
+gg.toast(" 自瞄开启成功")
+else
+gg.toast(" 自瞄开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 1074895257, ["type"] = 4},
+{["lm"] = 1071015526  , ["offset"] = -16, ["type"] = 4},
+{["lm"] = 1073217536    , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + -16,4, 1176255488)
+app.memoryawrite(data[i] + -48,4, 1148829696)
+end
+gg.toast(" 自瞄开启成功")
+else
+gg.toast(" 自瞄开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 858993459, ["type"] = 4},
+{["lm"] = 1073741824    , ["offset"] = -12, ["type"] = 4},
+{["lm"] = 1070176665  , ["offset"] = -76, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+a = gg.prompt({"输入要修改为的值  默认修改为900，数值越大自瞄越大"}, {[1] ="900"}, {[1] = "text"})
+for i = 1, #data do
+app.memoryawrite(data[i] + -32,64, 900)
+end
+gg.toast("自瞄开启成功")
+else
+gg.toast("自瞄开启失败")
+end
+
+local memorya = 4+1+32
+local arrayi = {
+{["lm"] = 858993459, ["type"] = 4},
+{["lm"] = 1073741824    , ["offset"] = -12, ["type"] = 4},
+{["lm"] = 1070176665  , ["offset"] = -76, ["type"] = 4},
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + -44,4, 1148829696)
+app.memoryawrite(data[i] + -60,4, -998653952)
+app.memoryawrite(data[i] + -80,64, 0)
+end
+gg.toast("自瞄开启成功")
+else
+gg.toast("自瞄开启失败")
+end
+end
+
+function Exit()
+print("")
+os.exit()
+end
+cs = ""
+
+
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XGCK == 1 then
+    Main()
+  end
+end
+
