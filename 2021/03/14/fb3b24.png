@@ -1,0 +1,797 @@
+
+
+
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) xgsl = xgsl + 1 end end function xqmnb(qmnb) gg.clearResults() gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "开启失败") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "开启失败") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) xgjg = true end end if xgjg == true then gg.toast(qmnb[2]["name"] .. "白衣制作:共修改" .. xgsl .. "条数据") else gg.toast(qmnb[2]["name"] .. "开启失败") end end end end 
+
+function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("酷奇制作:"..#data.."功能开启成功\n") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else gg.toast("搜索0条数据.功能开启失败", false) return false end else gg.toast("搜索0条数据.开启失败") return false end end
+
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, upgrade) for x = 1, #(upgrade) do xgpy = szpy + upgrade[x]["offset"] xglx = upgrade[x]["type"] xgsz = upgrade[x]["value"] gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) xgsl = xgsl + 1 end end function xupgn(upgn,bc) gg.clearResults() gg.setRanges(upgn[1]["memory"]) gg.searchNumber(upgn[3]["value"], upgn[3]["type"]) if gg.getResultCount() == 0 then gg.toast(upgn[2]["name"] .. "开启失败") else gg.refineNumber(upgn[3]["value"], upgn[3]["type"]) gg.refineNumber(upgn[3]["value"], upgn[3]["type"]) gg.refineNumber(upgn[3]["value"], upgn[3]["type"]) if gg.getResultCount() == 0 then gg.toast(upgn[2]["name"] .. "开启失败") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(upgn) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + upgn[v]["offset"] pysz[1].flags = upgn[v]["type"] szpy = gg.getValues(pysz) pdpd = upgn[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then 
+if bc then
+t = szpy
+for i=1,#t do
+t[i].value=upgrade[1].value
+t[i].freeze = true
+end
+print("addListItems:", gg.addListItems(t))
+end
+szpy = sl[i].address xgxc(szpy, upgrade) xgjg = true end end if xgjg == true then gg.toast(upgn[2]["name"] .. "酷奇制作:共修改" .. xgsl .. "条数据") else gg.toast(upgn[2]["name"] .. "开启失败") end end end end
+local app = {}
+function Assert(data)  
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memorya, arrayi)   
+if Assert(memorya) and Assert(arrayi) then
+return true
+else
+return false
+end
+end
+function typetab(arrayi, type)   
+local datatype = {}
+for i = 1, #arrayi do
+if Assert(arrayi[i].type) then
+table.insert(datatype, i, arrayi[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memoryasearch(memorya, arrayi, type)   
+gg.setVisible(false)
+local isok = mearrass(memorya, arrayi)
+if isok then
+local isok, datatype = typetab(arrayi, type)
+if isok then
+if Assert(arrayi[1].hv) then   
+gg.clearResults()
+gg.setRanges(memorya)
+gg.searchNumber(arrayi[1].lm .. "~" .. arrayi[1].hv, datatype[1])   
+else
+gg.clearResults()
+gg.setRanges(memorya)
+gg.searchNumber(arrayi[1].lm, datatype[1])   
+end
+if gg.getResultCount() == 0 then   
+return false  
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())   
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true   
+end
+for i = 2, #arrayi do
+local t = {}
+local offset = arrayi[i].offset
+for x = 1, #data do   
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(arrayi[i].hv) then   
+if tonumber(t[z].value) < tonumber(arrayi[i].lm) or tonumber(t[z].value) > tonumber(arrayi[i].hv) then
+
+data[z].isok = false   
+end
+else
+if tostring(t[z].value) ~= tostring(arrayi[i].lm) then   
+data[z].isok = false   
+end
+end
+end
+end
+for i = 1, #data do   
+if data[i].isok then   
+tab[#tab + 1] = data[i].address   
+end
+end
+if #tab > 0 then 
+return true, tab   
+else
+return false  
+end
+end
+else
+print("type参数错误")   
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memorya or arrayi参数错误")   
+gg.toast("memorya or arrayi参数错误")
+os.exit()
+end
+end
+function app.memoryaread(addr, type)   
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return true, gg.getValues(t)[1].value   
+else
+return false  
+end
+end
+function app.memoryawrite(addr, type, value, freeze)   
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then   
+t[1].freeze = freeze
+return gg.addListItems(t)  
+else
+return gg.setValues(t)  
+end
+else
+return false  
+end
+end
+
+
+
+
+
+function Main()
+menu = gg.choice({
+"天气查询",
+'酷奇稳定专区',
+'酷奇娱乐专区',
+'新防数据检测1( 登录界面 必开)',
+'旧防数据检测2( 登录界面 都开)',
+'防封数据检测3( 登录界面 都开)',
+'新封数据检测4( 登录界面 都开)',
+'退出脚本（防封按顺序开）'},
+nil,"酷奇制作荒野国服最强最稳脚本，请勿盗卖")
+if menu == 1 then kqK1() end
+if menu == 2 then A() end
+if menu == 3 then B() end
+if menu == 4 then kq1() end
+if menu == 5 then kq2() end
+if menu == 6 then kq3() end
+if menu == 7 then kq4() end
+if menu == 8 then Exit() end
+XGCK=-1
+end
+
+function kqK1()
+
+if file~=nil then con=file:read("*a") dz=con:match("%&(.-)%&") city=con:match("@(.-)@") file:close()
+ else
+  city=gg.prompt({"🔴输入城市{每位用户只有一次选择城市机会请认真输入}"},{""},{"text"})[1]
+  local function Enc(Mzsh)
+    return Mzsh:gsub(".", function(jia)
+      return string.format("%%%02X", (string.byte(jia)) % 256)
+    end):gsub(" ", "+")
+  end
+  dz=string.match(gg.makeRequest("http://toy1.weather.com.cn/search?cityname="..Enc(city).."&callback=success_jsonpCallback&_=1532937966722").content,"ref\":\"(.-)~")
+  if dz==nil then gg.alert("输入错误城市，请重新输入") os.exit() else f=io.open("/storage/emulated/0/.MyCity","w"):write("@"..city.."@\n&"..dz.."&"):close() end
+end
+function split(s, p)
+  local rt = {}
+  string.gsub(s,"[^" .. p .. "]+",function(w)
+    table.insert(rt, w)
+  end
+  )
+  return rt
+end
+function x(x)
+  local i=0
+  for w in string.gmatch(x,"active") do
+    i=i+1 end
+  local t=string.rep("⭐",i)
+  return t
+end
+-------
+tq=gg.makeRequest("http://www.weather.com.cn/weather1d/"..dz..".shtml").content
+---获取1天内天气
+a=string.gsub(string.gsub(string.gsub(string.gsub(string.match(tq,"var hour3data={\"1d\":%[(.-)]"),"\",\"","$$"),"\"",""),",...,",","),",(%d+)%$","")
+b=split(a,"$")--天气
+
+---获取生活指数
+tab={"<h2>(.-)</h2>","<em>(.-)</em>","\n<i (.-)</i>\n","<dd>(.-)</dd>"}
+shzs=gg.makeRequest("http://www.weather.com.cn/weather1dn/"..dz..".shtml").content
+tq1=string.match(shzs,"<b>生活助手</b>(.-)</div>")
+c={}
+for i=1,4 do
+  c[i]={}
+  for w in string.gmatch(tq1,tab[i]) do
+    if i==1 then if string.find(w,"em") then w="健臻·血糖" end end
+    table.insert(c[i],w)
+  end
+end
+ts={}
+for v=1,6 do
+  ts[v]={}
+  for i=1,4 do
+    table.insert(ts[v],c[i][v])
+  end
+end
+mm=""
+for i=1,6 do
+  mm=mm..ts[i][1]..":"..ts[i][2].."\n指数:"..x(ts[i][3]).."\n温馨提示:"..ts[i][4].."\n\n"
+end
+
+
+gg.alert("当前城市:"..city.."\n"..table.concat(b,"\n").."\n-----------\n".."生活助手:\n"..mm)
+
+end
+
+function A()
+menu1 = gg.multiChoice({
+'1.845透视(靶场)',
+'2.450透视(靶场)',
+'3.835透视(靶场)',
+'4.人物天线(落地)',
+'5.飞行加速(大厅)',
+'6.车辆锁油(大厅)',
+'7.全枪无后(大厅)',
+'返回上一页'},
+nil,'酷奇制作稳定无后，请注意透视在哪里开\n注意演戏不要打的太假')
+if menu1 == nil then else
+if menu1[1] == true then a1() end
+if menu1[2] == true then a2() end
+if menu1[3] == true then a3() end
+if menu1[4] == true then a4() end
+if menu1[5] == true then a5() end
+if menu1[6] == true then a6() end
+if menu1[7] == true then b1() end
+if menu1[8] == true then Main() end
+end
+GLWW=-1
+end
+
+
+
+function B()
+menu1 = gg.multiChoice({
+'1.全图除草(出生岛)',
+'2.持枪加速(落地)',
+'3.全车加速(大厅)',
+'4.人物遁地(落地)',
+'5.人物踏空(落地)',
+'6.子弹全穿(大厅 可以开车)',
+'7.范围锁头(出生岛，小号专用)',
+'8.范围锁甲(出生岛，大号可用)',
+'返回上一页'},
+nil,'注意小号功能不要大号使用\n以免封号\n不负全责')
+if menu1 == nil then else
+if menu1[1] == true then lb1() end
+if menu1[2] == true then b2() end
+if menu1[3] == true then b3() end
+if menu1[4] == true then b4() end
+if menu1[5] == true then b5() end
+if menu1[6] == true then b6() end
+if menu1[7] == true then b7() end
+if menu1[8] == true then b8() end
+if menu1[9] == true then Main() end
+end
+GLWW=-1
+end
+
+
+
+function a1()
+    gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("3.75;2.75000143051;2.0;-1.0;0.001000000059::",gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(10)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("2.015625;3.87548828125;3.75;2.0;-1.0;0.00100000005::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2.0", gg.TYPE_FLOAT,false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(60)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.toast("845透视开启成功")
+gg.clearResults() 
+end
+
+
+
+
+function a2()
+gg.alert("这个呢看你是啥图就是啥上色")
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+ gg.searchNumber("2.015625;3.75;3.875;2;-1;0.99900001287::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1) 
+ gg.searchNumber("2;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("80", gg.TYPE_FLOAT)
+gg.toast("上色开启成功")
+end
+
+
+
+function b2()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("4.6608868e-40F;4.7223687e21F;1.4467005e-40F;4.7223693e21F;-4.661055e-40F;4.7961557e21F;3.7615819e-37F;2.0F:121", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("31", gg.TYPE_FLOAT)
+gg.toast("透视中")
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("5D;4D;6D;330,786D;1,669,595,141D;398,113D;2F;-1F;0.99900001287F:1500", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("31", gg.TYPE_FLOAT)
+gg.toast("450透视开启成功")
+end
+
+
+
+function a3()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("4,923D;853D;2F::150", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(20)
+gg.editAll("50", gg.TYPE_FLOAT)
+gg.toast("透视中")
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber('103,240D;2F::150',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+gg.searchNumber('2',gg.TYPE_FLOAT, false, gg.SIGN_EQUAL,0,-1)
+gg.getResults(20)
+gg.editAll('50', gg.TYPE_FLOAT)
+gg.toast("835透视开启成功")
+gg.clearResults()
+end
+
+
+
+function a4()
+   gg.clearResults()
+  gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+  gg.searchNumber("-0.02063599974;0.01885999925;0.00770800002;1::512", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+    if gg.getResultCount() ==0 then
+    gg.toast("「白衣」女人物天线开启失败")
+  else
+  gg.searchNumber("1.0", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+  gg.getResults(1377)
+  gg.editAll("1377",gg.TYPE_FLOAT)
+    gg.toast("「白衣」女人物天线开启成功")
+  end
+  gg.clearResults()
+  gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+  gg.searchNumber("0.99966001511;-0.02609699965;0.02609699965;-0.00132599997;0.01718400046;-0.00394200021;1::512", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+    if gg.getResultCount() == 0 then
+    gg.toast("「酷奇提示」男人物天线开启失败")
+  else
+  gg.searchNumber("1.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.getResults(1377)
+  gg.editAll("1377", gg.TYPE_FLOAT)
+    gg.toast("「酷奇提示」男人物天线开启成功")
+  end 
+end
+
+
+
+function a5()
+upgn = {
+{["memory"] = 4+1},
+{["name"] = "飞行加速"},
+{["value"] = 0.436  , ["type"] = 64},
+{["lv"] = -0.1    , ["offset"] = -80, ["type"] = 64},
+{["lv"] = 0.6     , ["offset"] = -64, ["type"] = 64},
+{["lv"] = 0.4    , ["offset"] =  -48, ["type"] = 64},
+{["lv"] = 10     , ["offset"] = -32, ["type"] = 64},
+}
+upgrade = {
+{["value"] = 200, ["offset"] = -80, ["type"] = 64},
+}
+xupgn(upgn)
+end
+
+
+
+function a6()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_DATA)
+ gg.searchNumber("-1;1,065,353,216D;1;5;4::100", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("车辆锁油开启失败")
+else
+ gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ~=1 then
+  gg.toast("锁油开启失败")
+else
+gg.getResults(1) 
+gg.editAll("0.1", gg.TYPE_FLOAT) 
+gg.toast("车辆锁油开启成功")
+gg.clearResults()
+end
+end
+end
+
+function lb1()
+qmnb = {
+{["memory"] = 4},
+{["name"] = "酷奇除草"},
+{["value"] = 5126, ["type"] = 4},
+{["lv"] = 3, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 10, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 16, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 4, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 80, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1, ["offset"] = 24, ["type"] = 4},
+{["lv"] = 10, ["offset"] = 28, ["type"] = 4},
+{["lv"] = 11, ["offset"] = 40, ["type"] = 4},
+{["lv"] = 32, ["offset"] = 44, ["type"] = 4},
+}
+qmxg = {
+{["value"] = 0, ["offset"] = 28, ["type"] = 4},
+}
+xqmnb(qmnb)
+end
+
+function b1()
+gg.setRanges(4)
+    local dataType = 64
+    local tb1 = {{3.5, 0}, {0.5, 16}, {0.8, 32}, {0.1, 48}, {1.1, 64}, }
+    local tb2 = {{999, 48}, }
+    SearchWrite(tb1, tb2, dataType)
+    gg.setRanges(4)
+    local dataType = 64
+    local tb1 = {{700.0, 0}, {0.8, -32}, {10.0, -16}, }
+    local tb2 = {{7000, 0}, }
+    SearchWrite(tb1, tb2, dataType)  
+    gg.setRanges(4)
+    local dataType = 64
+    local tb1 = {{0.15, 0}, {0.8, -16}, {2.0, 16}, {1.0, 32}, }
+    local tb2 = {{0, 32}, }
+    SearchWrite(tb1, tb2, dataType) 
+end
+
+
+function b2()
+gg.alert("有几率闪退")
+qmnb = {
+{["memory"] = 4},
+{["name"] = "持枪加速"},
+{["value"] = 4.4, ["type"] = 64},
+{["lv"] = 2.1, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 7, ["offset"] = 64, ["type"] = 64},
+{["lv"] = 6.25, ["offset"] = 80, ["type"] = 64},
+}
+qmxg = {
+{["value"] = 9.5, ["offset"] = 64, ["type"] = 64},
+{["value"] = 9.5, ["offset"] = 80, ["type"] = 64},
+}
+xqmnb(qmnb)
+end
+
+
+
+
+    function b3()
+      upgn = {
+        {["memory"] = 37},
+        {["name"] = "车加速"},
+        {["value"] = -0.37, ["type"] = 64},
+        {["lv"] = -0.87, ["offset"] = -80, ["type"] = 64},
+        {["lv"] = 1, ["offset"] = -32, ["type"] = 64},
+        }
+      upgrade = {
+        {["value"] = 10, ["offset"] = -32, ["type"] = 64}
+        }
+      xupgn(upgn)
+      upgn = {
+        {["memory"] = 37},
+        {["name"] = "车加速"},
+        {["value"] = -0.97, ["type"] = 64},
+        {["lv"] = 2, ["offset"] = 64, ["type"] = 64},
+        {["lv"] = 0.01, ["offset"] = 208, ["type"] = 64},
+        {["lv"] = 1.5, ["offset"] = 288, ["type"] = 64},
+        }
+      upgrade = {
+        {["value"] = 10, ["offset"] = 64, ["type"] = 64},
+        {["value"] = 10, ["offset"] = 288, ["type"] = 64},
+        }
+      xupgn(upgn)
+      end
+
+
+
+function b4()
+  gg.clearResults()
+  gg.setRanges(gg.REGION_C_ALLOC)
+  gg.searchNumber("4.9e-324E;1,060,439,284D;1; 0.00999999978;0.70710682869;0.0078125E;1,065,353,216D::330", gg.TYPE_FLOAT)
+  if gg.getResultCount() == 0 then
+    gg.toast("超级遁地开启失败")
+  else
+    gg.searchNumber("1", gg.TYPE_FLOAT)
+    t = gg.getResults(10)
+    t[1].value = "4"
+    t[1].freeze = true
+    print("addListItems: ", gg.addListItems(t))
+    gg.alert("遁地开启成功，数值在保存列表,请手动调节高度，如出现多个数据请全部修改，记得取消数据冻结，以免游戏崩溃")
+    gg.toast("超级遁地开启成功")
+  end
+end
+
+
+
+function b5()
+ gg.clearResults()
+  gg.setRanges(gg.REGION_C_ALLOC + gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+  gg.searchNumber("-10.0;50.0;0.55000001192;0.20000000298::45", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+    if gg.getResultCount() ==0 then
+    gg.toast("「白衣提示」人物踏空开启失败")
+  else
+  gg.searchNumber("0.55000001192", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+  gg.getResults(77)
+  gg.editAll("777",gg.TYPE_FLOAT)
+    gg.toast("「白衣提示」人物踏空开启成功")
+  end
+end
+
+
+
+
+
+function b6()
+local memorya = gg.REGION_C_ALLOC+gg.REGION_C_HEAP
+local arrayi = {
+{["lm"] = 1.57, ["type"] = 64},
+{["lm"] = 1.8, ["offset"] = 0x10, ["type"] = 64},
+{["lm"] = 0.05, ["offset"] = 0x20, ["type"] = 64},
+{["lm"] = 0.1, ["offset"] = 0x30, ["type"] = 64}
+}
+local isok, data = app.memoryasearch(memorya, arrayi)
+if isok then
+for i = 1, #data do
+app.memoryawrite(data[i] + 0x30, 64, 99999)
+end
+gg.toast("子弹全穿开启成功")
+else
+gg.toast("子弹全穿开启失败")
+end
+end
+
+
+
+function b7()
+gg.clearResults()
+gg.alert("范围头有时有效果，有时无效果，请在开一遍即可")
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber('0.15;8962D::', gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber('0.15', gg.TYPE_FLOAT,false, gg.SIGN_EQUAL, 0, -1)
+zlsj=gg.getResults(1)
+ZL={}
+ZL[1] = {}
+ZL[1].address = zlsj[1].address - 20
+ZL[1].flags = gg.TYPE_DWORD
+IDZL = gg.getValues(ZL)[1].value
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber(IDZL .. ";0.15F", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber('0.15', gg.TYPE_FLOAT,false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(1000)
+gg.editAll('2.8', gg.TYPE_FLOAT)
+gg.toast('范围头开启成功')
+gg.clearResults()
+end
+
+
+
+
+
+function b8()
+gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+    gg.searchNumber("0.22;0.1;33D::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+    gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+    zlsj = gg.getResults(1)
+    ZL = {}
+    ZL[1] = {}
+    ZL[1].address = zlsj[1].address - 32
+    ZL[1].flags = gg.TYPE_DWORD
+    IDZL = gg.getValues(ZL)[1].value
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+    gg.searchNumber(IDZL .. ";0.1F", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+    gg.getResults(1000)
+    gg.editAll("1.48", gg.TYPE_FLOAT)
+    gg.toast('范围甲开启成功')
+    gg.clearResults()
+end
+
+function kq1()
+   qmnb = {
+        {memory = 4},
+        {
+          name = "酷奇制作\n内存防封第一步"
+        },
+        {value = -0.4, type = 64},
+        {
+          lv = 3.5,
+          offset = 32,
+          type = 64
+        },
+        {
+          lv = 0.5,
+          offset = 48,
+          type = 64
+        },
+        {
+          lv = 0.8,
+          offset = 64,
+          type = 64
+        },
+        {
+          lv = 0.1,
+          offset = 80,
+          type = 64
+        }
+      }
+      qmxg = {
+        {
+          value = 100000,
+          offset = 80,
+          type = 64
+        }
+      }
+      xqmnb(qmnb)
+      qmnb = {
+        {memory = 4},
+        {
+          name = "酷奇制作\n内存防封开启中"
+        },
+        {value = 5.5, type = 64},
+        {
+          lv = 0.6,
+          offset = 32,
+          type = 64
+        },
+        {
+          lv = 0.2,
+          offset = 48,
+          type = 64
+        },
+        {
+          lv = 2.5,
+          offset = 96,
+          type = 64
+        },
+        {
+          lv = 700,
+          offset = 112,
+          type = 64
+        },
+        {
+          lv = 0.1,
+          offset = 128,
+          type = 64
+        }
+      }
+      qmxg = {
+        {
+          value = 9999999,
+          offset = 128,
+          type = 64
+        }
+      }
+      xqmnb(qmnb)
+    end
+
+
+
+    function kq2()
+      gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber('0.8;0.1;1.1',gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL,0,-1)
+if gg.getResultCount() ==0 then
+gg.clearResults()
+gg.toast("内存防封开启失败")
+gg.clearResults()
+else
+gg.searchNumber('0.1',gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL,0,-1)
+gg.getResults(50)
+gg.editAll('9999999999', gg.TYPE_DOUBLE)
+gg.clearResults()
+gg.toast("白衣最新\n内存防封\n防拉回开启成功\n温馨提示祝你游戏愉快")
+gg.clearResults()
+end end
+     
+      
+      
+function kq3()
+  gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_C_HEAP)
+    local dataType = gg.TYPE_DOUBLE
+    local tb1 = {{3.5, 0}, {0.5, 0x10},{0.8, 0x20},{0.1, 0x30},{1.1, 0x40},{1.5, 0x80}}
+    local tb2 = {{999, 0x30},} 
+    SearchWrite(tb1, tb2, dataType)
+    gg.setRanges(gg.REGION_C_ALLOC)
+    local dataType = gg.TYPE_DOUBLE
+    local tb1 = {{1126.4, 0}, {0.1, 0x20}, {0.1, 0x80}}
+    local tb2 = {{999, 0x20},{999, 0x80},} 
+    SearchWrite(tb1, tb2, dataType)
+    gg.setRanges(gg.REGION_C_ALLOC)
+    local dataType = gg.TYPE_DOUBLE
+    local tb1 = {{3.5, 0}, {0.8, 0x20},{0.1, 0x30},{1.1, 0x40}}
+    local tb2 = {{999, 0x30},} 
+    SearchWrite(tb1, tb2, dataType)
+    gg.toast("酷奇防封检测开启成功") 
+end
+ 
+function kq4()
+  gg.setRanges(gg.REGION_C_ALLOC + gg.REGION_C_HEAP)
+    SearchWrite({
+      {3.5, 0},
+      {0.5, 16},
+      {0.8, 32},
+      {0.1, 48},
+      {1.1, 64},
+      {1.5, 128}
+    }, {
+      {999, 48}
+    }, gg.TYPE_DOUBLE)
+    gg.toast("防检测开启成功")
+end
+
+
+
+function Exit()
+print("酷奇制作荒野国服最强最稳脚本1，请勿盗卖，免费内部脚本")
+os.exit()
+end
+
+
+
+function HOME()
+lw=1
+Main()
+end
+
+
+
+cs = '白衣QQ:1'
+while(true)do
+if gg.isVisible(true) then
+XGCK=1
+gg.setVisible(false)
+end
+gg.clearResults()
+if XGCK==1 then
+Main()
+end
+end
+
+
+while true do
+  if gg.isVisible(true) then
+    XXX = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XXX == 1 then
+    MSKYZ()
+  end
+end
+
+
+
+
+
+
+---##脚本写上面##---
+
