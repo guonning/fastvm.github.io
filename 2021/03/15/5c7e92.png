@@ -1,0 +1,1737 @@
+
+
+gg.alert("陪伴温馨提示:3月13日公告更新每周星期天和星期三晚上为人工检测期")
+gg.alert("陪伴温馨提示:这个辅助没防封")
+gg.alert("陪伴温馨提示:同时请注意你的登陆界面跟以前一样不 如果不一样请联系作者QQ:3459552362")
+gg.alert("陪伴温馨提示:本辅助只有瞬移 没有其他功能")
+gg.alert("陪伴全新打造脚本 全网独家 如有相同绝逼二改脚本出现问题请联系陪伴")
+local app = {}
+function Assert(data)  
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memory, array)  
+if Assert(memory) and Assert(array) then
+return true
+else
+return false
+end
+end
+function typetab(array, type) 
+local datatype = {}
+for i = 1, #array do
+if Assert(array[i].type) then
+table.insert(datatype, i, array[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memorysearch(memory, array, type) 
+gg.setVisible(false)
+local isok = mearrass(memory, array)
+if isok then
+local isok, datatype = typetab(array, type)
+if isok then
+if Assert(array[1].hv) then 
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv .. "~" .. array[1].hv, datatype[1])
+else
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv, datatype[1])   
+end
+if gg.getResultCount() == 0 then  
+return false   
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())  
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true  
+end
+for i = 2, #array do
+local t = {}
+local offset = array[i].offset
+for x = 1, #data do   
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(array[i].hv) then 
+if tonumber(t[z].value) < tonumber(array[i].lv) or tonumber(t[z].value) > tonumber(array[i].hv) then
+data[z].isok = false
+end
+else
+if tostring(t[z].value) ~= tostring(array[i].lv) then 
+data[z].isok = false  
+end
+end
+end
+end
+for i = 1, #data do   
+if data[i].isok then  
+tab[#tab + 1] = data[i].address   
+end
+end
+if #tab > 0 then   
+return true, tab   
+else
+return false  
+end
+end
+else
+print("type参数错误")   
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memory or array参数错误") 
+gg.toast("memory or array参数错误")
+os.exit()
+end
+end
+function app.memoryread(addr, type)  
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return gg.getValues(t)[1].value  
+else
+return false 
+end
+end
+function app.memorywrite(addr, type, value, freeze)               
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then
+t[1].freeze = freeze
+return gg.addListItems(t)
+else
+return gg.setValues(t)
+end
+else
+return false
+end
+end
+aasd = 0.0
+isoka = dsa
+dataa = s
+function Main()
+jm1 = gg.choice({
+'☁〖激战原野〗☁',
+'☁〖飓风半岛〗☁',
+'☁〖荒野乐园〗☁',
+'☁〖退出脚本〗☁'},
+20210201,'本辅助只做为交流 请勿贩卖')
+if jm1 == 1 then Mainjz() end
+if jm1 == 2 then Maindd() end
+if jm1 == 3 then Mainly() end
+if jm1 == 4 then os.exit() end
+XGCK=-1
+end
+function Mainjz()
+jm2 = gg.choice({
+'☁〖西港〗☁',
+'☁〖寡妇村〗☁',
+'☁〖加油站〗☁',
+'☁〖中部主城〗☁',
+'☁〖缆车区〗☁',
+'☁〖东港旧址〗☁',
+'☁〖老城〗☁',
+'☁〖南郊城〗☁',
+'☁〖废弃车站〗☁',
+'☁〖旧电厂〗☁',
+'☁〖海景山庄〗☁',
+'☁〖采石场〗☁',
+'☁〖滨海镇〗☁',
+'☁〖灯塔城〗☁',
+'☁〖林海废墟〗☁',
+'☁〖出生地〗☁',
+'☁〖救命，我被卡在地下或房子里了〗☁',
+'☁〖退出〗☁'},
+20210201,'本辅助只做为交流 请勿贩卖')
+if jm2 == 1 then xiga = true che() end
+if jm2 == 2 then bafa = true che() end
+if jm2 == 3 then qiao = true che() end
+if jm2 == 4 then zhuc = true che() end
+if jm2 == 5 then lanc = true che() end
+if jm2 == 6 then dong = true che() end
+if jm2 == 7 then laoc = true che() end
+if jm2 == 8 then nanj = true che() end
+if jm2 == 9 then chez = true che() end
+if jm2 == 10 then dian = true che() end
+if jm2 == 11 then haij = true che() end
+if jm2 == 12 then cais = true che() end
+if jm2 == 13 then binh = true che() end
+if jm2 == 14 then deng = true che() end
+if jm2 == 15 then feix = true che() end
+if jm2 == 16 then chus = true che() end
+if jm2 == 17 then dixa() end
+if jm2 == 18 then Exit() end
+XGCK=-1
+end
+function dixa()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1059004885, ["type"] = 4},
+{["lv"] = 1008981770, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1.0, ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 24, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+aasd = app.memoryread(data[i] + 84, 16) + 0.3
+app.memorywrite(data[i] + 84, 16, aasd)
+end
+gg.toast("完毕，如果还被卡主那就再次使用本功能。")
+else
+gg.toast("失败")
+end
+end
+function che()
+menu = gg.choice({
+'☁〖全车〗☁',
+'☁〖人物不开伞瞬移〗☁',
+'☁〖蹦蹦〗☁',
+'☁〖吉普〗☁',
+'☁〖皮卡〗☁',
+'☁〖大巴〗☁',
+'☁〖三轮〗☁',
+'☁〖面包〗☁',
+'☁〖船〗☁',
+'☁〖轿车〗☁',
+'☁〖退出〗☁'},
+20210201,'当前所承载载具')
+if menu == 1 then reny = true pan() end
+if menu == 2 then tssy = true pan() end
+if menu == 3 then beng = true pan() end
+if menu == 4 then jipu = true pan() end
+if menu == 5 then pika = true pan() end
+if menu == 6 then daba = true pan() end
+if menu == 7 then sanl = true pan() end
+if menu == 8 then mianb = true pan() end
+if menu == 9 then chua = true pan() end
+if menu == 10 then jiao = true pan() end
+if menu == 11 then Exit() end
+XGCK=-1
+end
+function pan()
+if tssy then
+tssy = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -2055241857, ["type"] = 4},
+{["lv"] = 2139062143, ["offset"] = 4, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+for i = 1, #data do
+dataa[i] = data[i] - 116
+end
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jiao then
+jiao = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1036831949 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055286886 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if beng then
+beng = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1097229926 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063675494 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jipu then
+jipu = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1059648963 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if pika then
+pika = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055588876 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if daba then
+daba = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1062836634 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if sanl then
+sanl = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1053609165 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if mianb then
+mianb = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1022739087 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1054951342 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if chua then
+chua = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1100988023 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063876821 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if reny then
+reny = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 2139095039 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if isoka then
+if xiga then
+xiga = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -2148.87)
+app.memorywrite(dataa[i] + 88, 16, -93.143)-----
+app.memorywrite(dataa[i] + 92, 16, -620.62)
+end
+end
+end
+if bafa then
+bafa = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -809.55010986328)
+app.memorywrite(dataa[i] + 88, 16, -51.10948562622)-----
+app.memorywrite(dataa[i] + 92, 16, 312.08316040039)
+end
+end
+end
+if qiao then
+qiao = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -569.50146484375)
+app.memorywrite(dataa[i] + 88, 16, -40.66515731812)-----
+app.memorywrite(dataa[i] + 92, 16, -238.65739440918)
+end
+end
+end
+if zhuc then
+zhuc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 555.43542480469)
+app.memorywrite(dataa[i] + 88, 16, -36.71821975708)-----
+app.memorywrite(dataa[i] + 92, 16, -108.92050170898)
+end
+end
+end
+if lanc then
+lanc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 1180.30310058594)
+app.memorywrite(dataa[i] + 88, 16, -63.09272003174)-----
+app.memorywrite(dataa[i] + 92, 16, -152.13766479492)
+end
+end
+end
+if dong then
+dong = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 2128.63012695312)
+app.memorywrite(dataa[i] + 88, 16, -97.81834411621)-----
+app.memorywrite(dataa[i] + 92, 16, -536.20495605469)
+end
+end
+end
+if laoc then
+laoc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1166.95764160156)
+app.memorywrite(dataa[i] + 88, 16, -39.42955780029)-----
+app.memorywrite(dataa[i] + 92, 16, 1323.71765136719)
+end
+end
+end
+if nanj then
+nanj = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -120.54842376709)
+app.memorywrite(dataa[i] + 88, 16, -69.93363952637)-----
+app.memorywrite(dataa[i] + 92, 16, 1925.82385253906)
+end
+end
+end
+if chez then
+chez = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 819.57049560547)
+app.memorywrite(dataa[i] + 88, 16, -45.2046546936)----
+app.memorywrite(dataa[i] + 92, 16, 645.93542480469)
+end
+end
+end
+if dian then
+dian = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 1684.41955566406)
+app.memorywrite(dataa[i] + 88, 16, -73.90487670898)-----
+app.memorywrite(dataa[i] + 92, 16, -1699.54150390625)
+end
+end
+end
+if haij then
+haij = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 23.21622467041)
+app.memorywrite(dataa[i] + 88, 16, -40.58921432495)----
+app.memorywrite(dataa[i] + 92, 16, -1924.18579101562)
+end
+end
+end
+if cais then
+cais = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 1680.6337890625)
+app.memorywrite(dataa[i] + 88, 16, -10.42485046387)-----
+app.memorywrite(dataa[i] + 92, 16, 1120.80310058594)
+end
+end
+end
+if binh then
+binh = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 2229.7919921875)
+app.memorywrite(dataa[i] + 88, 16, -48.83476257324)-----
+app.memorywrite(dataa[i] + 92, 16, 1031.31555175781)
+end
+end
+end
+if deng then
+deng = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1877.3603515625)
+app.memorywrite(dataa[i] + 88, 16, -74.28952789307)-----
+app.memorywrite(dataa[i] + 92, 16, -2189.55981445312)
+end
+end
+end
+if feix then
+feix = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1470.47265625)
+app.memorywrite(dataa[i] + 88, 16, -55.25419235229)-----
+app.memorywrite(dataa[i] + 92, 16, 2253.33715820312)
+end
+end
+end
+if chus then
+chus = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 2859.86)
+app.memorywrite(dataa[i] + 88, 16, 50.552)-----
+app.memorywrite(dataa[i] + 92, 16, 2806.64)
+end
+end
+end
+gg.toast("成功")
+else
+gg.toast("失败")
+end
+end
+
+
+function Maindd()
+jm3 = gg.choice({
+'☁〖度假山庄〗☁',
+'☁〖小北港〗☁',
+'☁〖东岛〗☁',
+'☁〖北港〗☁',
+'☁〖石门桥〗☁',
+'☁〖太阳能电厂〗☁',
+'☁〖丰城〗☁',
+'☁〖薰衣草田〗☁',
+'☁〖主城新区〗☁',
+'☁〖足球场〗☁',
+'☁〖水厂〗☁',
+'☁〖河湾集〗☁',
+'☁〖湖湾别墅〗☁',
+'☁〖商场〗☁',
+'☁〖鱼乡〗☁',
+'☁〖湖心岛〗☁',
+'☁〖南镇〗☁',
+'☁〖救命，我被卡在地下或房子里了〗☁',
+'☁〖退出〗☁'},
+20210201,'本辅助只做为交流 请勿贩卖')
+if jm3 == 1 then shaz = true chedd() end
+if jm3 == 2 then xibg = true chedd() end
+if jm3 == 3 then doda = true chedd() end
+if jm3 == 4 then bega = true chedd() end
+if jm3 == 5 then shmq = true chedd() end
+if jm3 == 6 then tynd = true chedd() end
+if jm3 == 7 then fenc = true chedd() end
+if jm3 == 8 then xyct = true chedd() end
+if jm3 == 9 then zcxq = true chedd() end
+if jm3 == 10 then zqch = true chedd() end
+if jm3 == 11 then shuc = true chedd() end
+if jm3 == 12 then hewj = true chedd() end
+if jm3 == 13 then hwbs = true chedd() end
+if jm3 == 14 then shac = true chedd() end
+if jm3 == 15 then yuxi = true chedd() end
+if jm3 == 16 then huxd = true chedd() end
+if jm3 == 17 then nanz = true chedd() end
+if jm3 == 18 then dixadd() end
+if jm3 == 19 then Exit() end
+XGCK=-1
+end
+aasd = 0.0
+function dixadd()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1059004885, ["type"] = 4},
+{["lv"] = 1008981770, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1.0, ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 24, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+aasd = app.memoryread(data[i] + 84, 16) + 0.3
+app.memorywrite(data[i] + 84, 16, aasd)
+end
+gg.toast("完毕，如果还被卡主那就再次使用本功能。")
+else
+gg.toast("失败")
+end
+end
+function chedd()
+menu = gg.choice({
+'☁〖全车〗☁',
+'☁〖人物不开伞瞬移〗☁',
+'☁〖蹦蹦〗☁',
+'☁〖吉普〗☁',
+'☁〖皮卡〗☁',
+'☁〖大巴〗☁',
+'☁〖三轮〗☁',
+'☁〖面包〗☁',
+'☁〖船〗☁',
+'☁〖轿车〗☁',
+'☁〖退出〗☁'},
+20210201,'当前所承载载具')
+if menu == 1 then reny = true pandd() end
+if menu == 2 then tssy = true pandd() end
+if menu == 3 then bega = true pandd() end
+if menu == 4 then jipu = true pandd() end
+if menu == 5 then pika = true pandd() end
+if menu == 6 then daba = true pandd() end
+if menu == 7 then sanl = true pandd() end
+if menu == 8 then mianb = true pandd() end
+if menu == 9 then chua = true pandd() end
+if menu == 10 then jiao = true pandd() end
+if menu == 11 then Exit() end
+XGCK=-1
+end
+
+function pandd()
+if tssy then
+tssy = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -2055241857, ["type"] = 4},
+{["lv"] = 2139062143, ["offset"] = 4, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+for i = 1, #data do
+dataa[i] = data[i] - 116
+end
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jiao then
+jiao = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1036831949 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055286886 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if beng then
+beng = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1097229926 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063675494 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jipu then
+jipu = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1059648963 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if pika then
+pika = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055588876 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if daba then
+daba = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1062836634 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if sanl then
+sanl = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1053609165 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if mianb then
+mianb = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1022739087 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1054951342 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if chua then
+chua = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1100988023 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063876821 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if reny then
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 2139095039 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if isoka then
+if shaz then
+shaz = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -654.01031494141)
+app.memorywrite(dataa[i] + 88, 16, 37.77803421021)-----
+app.memorywrite(dataa[i] + 92, 16, -2690.18212890625)
+end
+end
+end
+if xibg then
+xibg = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 1169.11657714844)
+app.memorywrite(dataa[i] + 88, 16, 3.87976455688)-----
+app.memorywrite(dataa[i] + 92, 16, -2690.18212890625)
+end
+end
+end
+if doda then
+doda = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 2246.84912109375)
+app.memorywrite(dataa[i] + 88, 16, 28.46554756165)-----
+app.memorywrite(dataa[i] + 92, 16, -1402.04614257812)
+end
+end
+end
+if bega then
+bega = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 640.79809570312)
+app.memorywrite(dataa[i] + 88, 16, 28.98276138306)-----
+app.memorywrite(dataa[i] + 92, 16, -2269.36450195312)
+end
+end
+end
+if shmq then
+shmq = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1468.97509765625)
+app.memorywrite(dataa[i] + 88, 16, 27.80963897705)-----
+app.memorywrite(dataa[i] + 92, 16, -1736.55749511719)
+end
+end
+end
+if tynd then
+dong = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -2097.32348632812)
+app.memorywrite(dataa[i] + 88, 16, 39.48793411255)-----
+app.memorywrite(dataa[i] + 92, 16, -1512.39990234375)
+end
+end
+end
+if fenc then
+fenc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -2328.19848632812)
+app.memorywrite(dataa[i] + 88, 16, 74.1304473877)-----
+app.memorywrite(dataa[i] + 92, 16, -954.98791503906)
+end
+end
+end
+if xyct then
+nanj = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1,341.62719726562)
+app.memorywrite(dataa[i] + 88, 16, 75.82526397705)-----
+app.memorywrite(dataa[i] + 92, 16, -895.33264160156)
+end
+end
+end
+if zcxq then
+zcxq = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -499.76135253906)
+app.memorywrite(dataa[i] + 88, 16, 78.38484191895)----
+app.memorywrite(dataa[i] + 92, 16, -652.00152587891)
+end
+end
+end
+if zqch then
+zqch = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 90.68440246582)
+app.memorywrite(dataa[i] + 88, 16, 52.32945251465)-----
+app.memorywrite(dataa[i] + 92, 16, -891.39953613281)
+end
+end
+end
+if shuc then
+shuc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 296.47900390625)
+app.memorywrite(dataa[i] + 88, 16, 63.74725341797)----
+app.memorywrite(dataa[i] + 92, 16, 117.50547790527)
+end
+end
+end
+if hewj then
+hewj = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 869.72503662109)
+app.memorywrite(dataa[i] + 88, 16, 32.95900344849)-----
+app.memorywrite(dataa[i] + 92, 16, 256.94174194336)
+end
+end
+end
+if hwbs then
+hwbs = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -500.96392822266)
+app.memorywrite(dataa[i] + 88, 16, 37.97501754761)-----
+app.memorywrite(dataa[i] + 92, 16, 1460.62084960938)
+end
+end
+end
+if shac then
+shac = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 248.06510925293)
+app.memorywrite(dataa[i] + 88, 16, 67.63622283936)-----
+app.memorywrite(dataa[i] + 92, 16, 1214.89147949219)
+end
+end
+end
+if yuxi then
+yuxi = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -1709.70495605469)
+app.memorywrite(dataa[i] + 88, 16, 23.79621696472)-----
+app.memorywrite(dataa[i] + 92, 16, 1330.43041992188)
+end
+end
+end
+if huxd then
+huxd = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -921.919921875)
+app.memorywrite(dataa[i] + 88, 16, 22.92820739746)-----
+app.memorywrite(dataa[i] + 92, 16, 623.95892333984)
+end
+end
+end
+if nanz then
+nanz = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 1,360.07470703125)
+app.memorywrite(dataa[i] + 88, 16, 126.65572357178)-----
+app.memorywrite(dataa[i] + 92, 16, 2669.66552734375)
+end
+end
+end
+gg.toast("成功")
+else
+gg.toast("失败")
+end
+end
+
+function Mainly()
+jm4 = gg.choice({
+'☁〖艺术集装箱〗☁',
+'☁〖海盗船〗☁',
+'☁〖矿山小镇〗☁',
+'☁〖绿林小屋〗☁',
+'☁〖马戏棚〗☁',
+'☁〖滨海休息〗☁',
+'☁〖冲霄〗☁',
+'☁〖冲霄穿梭区〗☁',
+'☁〖寂静岛屿〗☁',
+'☁〖咖啡机〗☁',
+'☁〖乐园大门〗☁',
+'☁〖摩天轮〗☁',
+'☁〖选择木马〗☁',
+'☁〖中心大道〗☁',
+'☁〖神秘遗址〗☁',
+'☁〖救命，我被卡在地下或房子里了〗☁',
+'☁〖退出〗☁'},
+20210201,'本辅助只做为交流 请勿贩卖')
+if jm4 == 1 then shaz = true chely() end
+if jm4 == 2 then xibg = true chely() end
+if jm4 == 3 then doda = true chely() end
+if jm4 == 4 then bega = true chely() end
+if jm4 == 5 then shmq = true chely() end
+if jm4 == 6 then tynd = true chely() end
+if jm4 == 7 then fenc = true chely() end
+if jm4 == 8 then xyct = true chely() end
+if jm4 == 9 then zcxq = true chely() end
+if jm4 == 10 then zqch = true chely() end
+if jm4 == 11 then shuc = true chely() end
+if jm4 == 12 then hewj = true chely() end
+if jm4 == 13 then hwbs = true chely() end
+if jm4 == 14 then shac = true chely() end
+if jm4 == 15 then yuxi = true chely() end
+if jm4 == 16 then dixaly() end
+if jm4 == 17 then Exit() end
+XGCK=-1
+end
+function dixagg()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1059004885, ["type"] = 4},
+{["lv"] = 1008981770, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1.0, ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 24, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+aasd = app.memoryread(data[i] + 84, 16) + 0.3
+app.memorywrite(data[i] + 84, 16, aasd)
+end
+gg.toast("完毕，如果还被卡主那就再次使用本功能。")
+else
+gg.toast("失败")
+end
+end
+function chely()
+menu = gg.choice({
+'☁〖全车〗☁',
+'☁〖人物不开伞瞬移〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖待更新〗☁',
+'☁〖退出〗☁'},
+20210201,'当前所承载载具')
+if menu == 1 then reny = true panly() end
+if menu == 2 then tssy = true panly() end
+if menu == 3 then bega = true panly() end
+if menu == 4 then jipu = true panly() end
+if menu == 5 then pika = true panly() end
+if menu == 6 then daba = true panly() end
+if menu == 7 then sanl = true panly() end
+if menu == 8 then mianb = true panly() end
+if menu == 9 then chua = true panly() end
+if menu == 10 then jiao = true panly() end
+if menu == 11 then Exit() end
+XGCK=-1
+end
+function panly()
+if tssy then
+tssy = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -2055241857, ["type"] = 4},
+{["lv"] = 2139062143, ["offset"] = 4, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+for i = 1, #data do
+dataa[i] = data[i] - 116
+end
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jiao then
+jiao = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1036831949 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055286886 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if beng then
+beng = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1097229926 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063675494 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if jipu then
+jipu = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1059648963 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if pika then
+pika = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1124744561 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1055588876 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if daba then
+daba = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1062836634 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if sanl then
+sanl = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1014350479 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1053609165 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if mianb then
+mianb = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1022739087 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1054951342 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if chua then
+chua = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = 4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = 12, ["type"] = 16},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -4, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -8, ["type"] = 16},
+{["lv"] = 0.0 , ["offset"] = -12, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = -1100988023 , ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1063876821 , ["offset"] = -24, ["type"] = 4},
+{["lv"] = 0.0 , ["offset"] = -28, ["type"] = 16},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if reny then
+reny = false
+local memory = 4+1+32
+local array = {
+{["lv"] = -190986834 , ["type"] = 4},
+{["lv"] = 2139095039 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 49.0 , ["offset"] = 20, ["type"] = 16},
+{["lv"] = 1041865114 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1.0 , ["offset"] = -32, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+isoka = true
+dataa = data
+else
+gg.toast("失败!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+end
+end
+if isoka then
+if shaz then
+shaz = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -772.13812255859)
+app.memorywrite(dataa[i] + 88, 16, -30.5513343811)-----
+app.memorywrite(dataa[i] + 92, 16, 108.97986602783)
+end
+end
+end
+if xibg then
+xibg = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -29.13004875183)
+app.memorywrite(dataa[i] + 88, 16, 11.11362075806)-----
+app.memorywrite(dataa[i] + 92, 16, 822.28430175781)
+end
+end
+end
+if doda then
+doda = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 337.13070678711)
+app.memorywrite(dataa[i] + 88, 16, 5.2216887474)-----
+app.memorywrite(dataa[i] + 92, 16, 815.13299560547)
+end
+end
+end
+if bega then
+bega = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 388.88198852539)
+app.memorywrite(dataa[i] + 88, 16, 9.34993457794)-----
+app.memorywrite(dataa[i] + 92, 16, 423.53344726562)
+end
+end
+end
+if shmq then
+shmq = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 11.43364143372)
+app.memorywrite(dataa[i] + 88, 16, -22.96266365051)-----
+app.memorywrite(dataa[i] + 92, 16, 268.85906982422)
+end
+end
+end
+if tynd then
+tynd = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -379.58554077148)
+app.memorywrite(dataa[i] + 88, 16, -31.28260993958)-----
+app.memorywrite(dataa[i] + 92, 16, 565.00164794922)
+end
+end
+end
+if fenc then
+fenc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -390.71350097656)
+app.memorywrite(dataa[i] + 88, 16, -19.81851005554)-----
+app.memorywrite(dataa[i] + 92, 16, 374.84942626953)
+end
+end
+end
+if xyct then
+xyct = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -412.1344909668)
+app.memorywrite(dataa[i] + 88, 16, -19.81851005554)-----
+app.memorywrite(dataa[i] + 92, 16, 374.84942626953)
+end
+end
+end
+if zcxq then
+zcxq = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -703.31903076172)
+app.memorywrite(dataa[i] + 88, 16, -30.57013511658)----
+app.memorywrite(dataa[i] + 92, 16, -500.40927124023)
+end
+end
+end
+if zqch then
+zqch = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -366.4423828125)
+app.memorywrite(dataa[i] + 88, 16, -30.07390594482)-----
+app.memorywrite(dataa[i] + 92, 16, -658.86572265625)
+end
+end
+end
+if shuc then
+shuc = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -23.32816505432)
+app.memorywrite(dataa[i] + 88, 16, -29.45953559875)----
+app.memorywrite(dataa[i] + 92, 16, -821.70855712891)
+end
+end
+end
+if hewj then
+hewj = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 410.3098449707)
+app.memorywrite(dataa[i] + 88, 16, 4.41101503372)-----
+app.memorywrite(dataa[i] + 92, 16, -742.86010742188)
+end
+end
+end
+if hwbs then
+hwbs = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 618.20220947266)
+app.memorywrite(dataa[i] + 88, 16, 5.27630090714)-----
+app.memorywrite(dataa[i] + 92, 16, 16.37448501587)
+end
+end
+end
+if shac then
+shac = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, 451.23355102539)
+app.memorywrite(dataa[i] + 88, 16, 5.09885549545)-----
+app.memorywrite(dataa[i] + 92, 16, -23.50027656555)
+end
+end
+end
+if yuxi then
+yuxi = false
+for i = 1, #dataa do
+if app.memoryread(dataa[i] + 84, 4) == 0 then
+
+else
+app.memorywrite(dataa[i] + 84, 16, -602.17181396484)
+app.memorywrite(dataa[i] + 88, 16, -33.53139877319)-----
+app.memorywrite(dataa[i] + 92, 16, 663.96704101562)
+end
+end
+end
+gg.toast("成功")
+else
+gg.toast("失败")
+end
+end
+
+function Exit()
+print("作者:优しく伴")
+os.exit()
+end
+function HOME()
+lw=1
+Main()
+end
+while true do
+if gg.isVisible(true) then
+XGCK=1
+gg.setVisible(false)
+end
+gg.clearResults()
+if XGCK==1 then
+Main()
+end
+end
