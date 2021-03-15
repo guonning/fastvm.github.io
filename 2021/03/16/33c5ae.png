@@ -1,0 +1,297 @@
+local pxxe=gg[ "makeRequest" ]( "酷奇网络申请" )
+while tostring(pxxe):find( "酷奇+" )==nil do
+while true do  print( "NO Network " ) end end
+function _A(_B) 
+return string.char(table.unpack(_B))
+end
+local optfff=function()
+local igs = 0
+for i in pairs(_G) do
+igs = igs + 1
+end
+if igs ~= 36 then
+goto BAD
+end
+ipai = gg[ "isPackageInstalled" ]
+gpa = gg[ "PACKAGE" ]
+ggf = gg[ "getFile" ]()
+gg[ "setVisible" ](false)
+goto P1
+::BAD::
+xpc=nil if  gg.isVisible() then xpc=0 end
+while xpc~=0 do break end
+wgcz =  "" 
+gg[ "toast" ](wgcz)
+gg[ "sleep" ](50)
+gg[ "setVisible" ](true)  
+::PP::
+gg[ "toast" ](wgcz)
+goto PP
+::P1::
+if #{pairs({ "EA-FFF" })} ~= 2 then
+goto BAD
+end
+xi = {1, 1}
+for i, v in pairs(gg) do 
+xi[1] = xi[1] + 1
+if i:find( "DIR" ) and not v:find(gpa) then
+goto BAD
+end
+if type(v) ==  "function"  then
+xi[2] = xi[2] + 1
+end
+end
+if xi[1] ~= 123 or xi[2] ~= 64 then
+goto BAD
+end
+xi = 1
+for i, v in pairs(debug) do 
+xi = xi + 1
+if type(v) ~=  "function"  then
+goto BAD
+end
+end
+if xi ~= 17 then
+goto BAD
+end
+h = 1 
+repeat
+h = h + 1
+until type(debug.getinfo(h) or 0) ==  "number" 
+if h > 2 or debug.getinfo(h - 1).short_src ~= ggf then
+goto BAD
+end
+if debug.traceback():match( ".(/.-):" ) ~= ggf then 
+goto BAD
+end
+f = io.open( "/data/data/"  .. gpa ..  "/shared_prefs/"  .. gpa ..  "_preferences.xml" )
+if not f then
+goto BAD
+else
+spc = f:read( "*a" )
+f:close()
+if #spc < 20 then 
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "script%-debug.>(.-)<" ) do
+op = op + 1
+end
+if op ~= 0 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "history%-0.>(.-)<" ) do
+op = op + 1
+h0 = k
+end
+if op ~= 1 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch(gg[ "getTargetPackage" ]() ..  "%-script.>(.-)<" ) do
+op = op + 1
+ps = k
+end
+if op ~= 1 then
+goto BAD
+end
+if h0 ~= ps or h0 ~= ggf or ps ~= ggf then 
+goto BAD
+end
+end
+isby = debug.traceback():match( "(/.*/.*):%d" ) 
+if ggf == isby or isby or debug.traceback():match( ":(%d+)" ) then
+goto BAD
+end
+if not ipai(gpa) or ipai( "com.fffsse.bad" ) then 
+goto BAD
+end
+if sdpa == true and gpa ~=  "com.fffsse.gg"  then
+goto BAD
+end
+while true do 
+goto BAD end
+end
+function ffvpns()
+ffvpn= "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F" 
+x=(tostring(gg[ "makeRequest" ](ffvpn)))
+if not x  or not x:sub(1,20) then 
+gg[ "alert" ]( "GG无法访问网络请查看相应限权" , "" )
+else
+while  #(x)<100  
+or x:find( "SLS" ) or x:find('I/O') or x:find('javax')
+do 
+gg[ "alert" ]( "酷奇SLS警告:网络数据通道异常\n\nMTP:已验证本机调试型VPN启用请立刻终止脚本否则控制手机屏幕卡死" , "" , "我不信" , "我信" )
+local mpxgk=optfff()
+end 
+end
+end
+ffvpns()
+
+SJ=gg.makeRequest('http://www.baidu.com').content
+if (SJ==nil) then 
+gg.alert("网络连接失败\n请尝试重启脚本")
+else
+gg.toast('网络连接成功')
+end
+GG='http://www.iyuji.cn/iyuji/s/K1dKSkd4cnRTSmVrNElXL3kxaWhPZz09/1615785632466988'--放讯飞链接
+local SJ = gg.makeRequest(GG).content
+local SJ0 = gg.makeRequest(GG).content:match('<div class="read_txt">阅读&nbsp; (.-)</div>')
+local SJ1 = SJ:match('【访问】(.-)【状态】')
+local SJ2 = SJ:match('【当前】(.-)【版本】')
+local SJ3 = SJ:match('【更新】(.-)【时间】')
+local SJ4 = SJ:match('【公告】(.-)【公告】')
+local SJ5 = SJ:match('【脚本】(.-)【链接】')
+local SJ6 = SJ:match('【关闭】(.-)【提示】')
+if SJ1=='开放' then
+else
+gg.alert(SJ6)
+os.exit()
+end
+gg.alert('公告:\n\n'..SJ4..'','\n最后更新:\n'..SJ3..'\n启动次数:\n'..SJ0..'')
+gg.toast('加载中')
+pcall(load(SJ5))
+local pxxe=gg[ "makeRequest" ]( "酷奇网络申请" )
+while tostring(pxxe):find( "酷奇+" )==nil do
+while true do  print( "NO Network " ) end end
+function _A(_B) 
+return string.char(table.unpack(_B))
+end
+local optfff=function()
+local igs = 0
+for i in pairs(_G) do
+igs = igs + 1
+end
+if igs ~= 36 then
+goto BAD
+end
+ipai = gg[ "isPackageInstalled" ]
+gpa = gg[ "PACKAGE" ]
+ggf = gg[ "getFile" ]()
+gg[ "setVisible" ](false)
+goto P1
+::BAD::
+xpc=nil if  gg.isVisible() then xpc=0 end
+while xpc~=0 do break end
+wgcz =  "" 
+gg[ "toast" ](wgcz)
+gg[ "sleep" ](50)
+gg[ "setVisible" ](true)  
+::PP::
+gg[ "toast" ](wgcz)
+goto PP
+::P1::
+if #{pairs({ "EA-FFF" })} ~= 2 then
+goto BAD
+end
+xi = {1, 1}
+for i, v in pairs(gg) do 
+xi[1] = xi[1] + 1
+if i:find( "DIR" ) and not v:find(gpa) then
+goto BAD
+end
+if type(v) ==  "function"  then
+xi[2] = xi[2] + 1
+end
+end
+if xi[1] ~= 123 or xi[2] ~= 64 then
+goto BAD
+end
+xi = 1
+for i, v in pairs(debug) do 
+xi = xi + 1
+if type(v) ~=  "function"  then
+goto BAD
+end
+end
+if xi ~= 17 then
+goto BAD
+end
+h = 1 
+repeat
+h = h + 1
+until type(debug.getinfo(h) or 0) ==  "number" 
+if h > 2 or debug.getinfo(h - 1).short_src ~= ggf then
+goto BAD
+end
+if debug.traceback():match( ".(/.-):" ) ~= ggf then 
+goto BAD
+end
+f = io.open( "/data/data/"  .. gpa ..  "/shared_prefs/"  .. gpa ..  "_preferences.xml" )
+if not f then
+goto BAD
+else
+spc = f:read( "*a" )
+f:close()
+if #spc < 20 then 
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "script%-debug.>(.-)<" ) do
+op = op + 1
+end
+if op ~= 0 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "history%-0.>(.-)<" ) do
+op = op + 1
+h0 = k
+end
+if op ~= 1 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch(gg[ "getTargetPackage" ]() ..  "%-script.>(.-)<" ) do
+op = op + 1
+ps = k
+end
+if op ~= 1 then
+goto BAD
+end
+if h0 ~= ps or h0 ~= ggf or ps ~= ggf then 
+goto BAD
+end
+end
+isby = debug.traceback():match( "(/.*/.*):%d" ) 
+if ggf == isby or isby or debug.traceback():match( ":(%d+)" ) then
+goto BAD
+end
+if not ipai(gpa) or ipai( "com.fffsse.bad" ) then 
+goto BAD
+end
+if sdpa == true and gpa ~=  "com.fffsse.gg"  then
+goto BAD
+end
+while true do 
+goto BAD end
+end
+function ffvpns()
+ffvpn= "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F" 
+x=(tostring(gg[ "makeRequest" ](ffvpn)))
+if not x  or not x:sub(1,20) then 
+gg[ "alert" ]( "GG无法访问网络请查看相应限权" , "" )
+else
+while  #(x)<100  
+or x:find( "SLS" ) or x:find('I/O') or x:find('javax')
+do 
+gg[ "alert" ]( "酷奇SLS警告:网络数据通道异常\n\nMTP:已验证本机调试型VPN启用请立刻终止脚本否则控制手机屏幕卡死" , "" , "我不信" , "我信" )
+local mpxgk=optfff()
+end 
+end
+end
+ffvpns()
+
+--[[
+【访问】开放/关闭【状态】
+
+【当前】1.0 【版本】  
+
+【更新】2020.7.26【时间】
+
+【公告】公告内容【公告】  
+
+【脚本】pcall(load(gg.makeRequest("脚本链接").content))【链接】
+【关闭】感谢各位的支持\n本脚本从即日起2021.1.14停止服务\n感谢各位的支持 再见【提示】
+]]
