@@ -1,0 +1,4467 @@
+ code1 = gg.makeRequest("http://www.baidu.com").content
+  if code1 == nil then
+    gg.alert("网络请求请点击确定！")
+    os.exit()
+  end
+  
+local pxxe=gg[ "makeRequest" ]( "酷奇网络申请" )
+while tostring(pxxe):find( "酷奇+" )==nil do
+while true do  print( "NO Network " ) end end
+function _A(_B) 
+return string.char(table.unpack(_B))
+end
+local optfff=function()
+local igs = 0
+for i in pairs(_G) do
+igs = igs + 1
+end
+if igs ~= 36 then
+goto BAD
+end
+ipai = gg[ "isPackageInstalled" ]
+gpa = gg[ "PACKAGE" ]
+ggf = gg[ "getFile" ]()
+gg[ "setVisible" ](false)
+goto P1
+::BAD::
+xpc=nil if  gg.isVisible() then xpc=0 end
+while xpc~=0 do break end
+wgcz =  "" 
+gg[ "toast" ](wgcz)
+gg[ "sleep" ](50)
+gg[ "setVisible" ](true)  
+::PP::
+gg[ "toast" ](wgcz)
+goto PP
+::P1::
+if #{pairs({ "EA-FFF" })} ~= 2 then
+goto BAD
+end
+xi = {1, 1}
+for i, v in pairs(gg) do 
+xi[1] = xi[1] + 1
+if i:find( "DIR" ) and not v:find(gpa) then
+goto BAD
+end
+if type(v) ==  "function"  then
+xi[2] = xi[2] + 1
+end
+end
+if xi[1] ~= 123 or xi[2] ~= 64 then
+goto BAD
+end
+xi = 1
+for i, v in pairs(debug) do 
+xi = xi + 1
+if type(v) ~=  "function"  then
+goto BAD
+end
+end
+if xi ~= 17 then
+goto BAD
+end
+h = 1 
+repeat
+h = h + 1
+until type(debug.getinfo(h) or 0) ==  "number" 
+if h > 2 or debug.getinfo(h - 1).short_src ~= ggf then
+goto BAD
+end
+if debug.traceback():match( ".(/.-):" ) ~= ggf then 
+goto BAD
+end
+f = io.open( "/data/data/"  .. gpa ..  "/shared_prefs/"  .. gpa ..  "_preferences.xml" )
+if not f then
+goto BAD
+else
+spc = f:read( "*a" )
+f:close()
+if #spc < 20 then 
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "script%-debug.>(.-)<" ) do
+op = op + 1
+end
+if op ~= 0 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "history%-0.>(.-)<" ) do
+op = op + 1
+h0 = k
+end
+if op ~= 1 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch(gg[ "getTargetPackage" ]() ..  "%-script.>(.-)<" ) do
+op = op + 1
+ps = k
+end
+if op ~= 1 then
+goto BAD
+end
+if h0 ~= ps or h0 ~= ggf or ps ~= ggf then 
+goto BAD
+end
+end
+isby = debug.traceback():match( "(/.*/.*):%d" ) 
+if ggf == isby or isby or debug.traceback():match( ":(%d+)" ) then
+goto BAD
+end
+if not ipai(gpa) or ipai( "com.fffsse.bad" ) then 
+goto BAD
+end
+if sdpa == true and gpa ~=  "com.fffsse.gg"  then
+goto BAD
+end
+while true do 
+goto BAD end
+end
+function ffvpns()
+ffvpn= "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F" 
+x=(tostring(gg[ "makeRequest" ](ffvpn)))
+if not x  or not x:sub(1,20) then 
+gg[ "alert" ]( "GG无法访问网络请查看相应限权" , "" )
+else
+while  #(x)<100  
+or x:find( "SLS" ) or x:find('I/O') or x:find('javax')
+do 
+gg[ "alert" ]( "酷奇SLS警告:网络数据通道异常\n\nMTP:已验证本机调试型VPN启用请立刻终止脚本否则控制手机格机" , "" , "我不信" , "我信" )
+local mpxgk=optfff()
+end 
+end
+end
+ffvpns()
+
+
+
+
+
+
+
+
+
+
+
+DWORD=gg.TYPE_DWORD  DOUBLE=gg.TYPE_DOUBLE  FLOAT=gg.TYPE_FLOAT WORD=gg.TYPE_WORD BYTE=gg.TYPE_BYTE XOR=gg.TYPE_XOR QWORD=gg.TYPE_QWORD
+-- 【【 核心代码，不懂勿动 】】
+--   JF Script编辑器
+local app = {}
+function Assert(data)  
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memory, array)  
+if Assert(memory) and Assert(array) then
+return true
+else
+return false
+end
+end
+function typetab(array, type) 
+local datatype = {}
+for i = 1, #array do
+if Assert(array[i].type) then
+table.insert(datatype, i, array[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memorysearch(memory, array, type) 
+gg.setVisible(false)
+local isok = mearrass(memory, array)
+if isok then
+local isok, datatype = typetab(array, type)
+if isok then
+if Assert(array[1].hv) then 
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv .. "~" .. array[1].hv, datatype[1])
+else
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv, datatype[1])   
+end
+if gg.getResultCount() == 0 then  
+return false   
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())  
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true  
+end
+for i = 2, #array do
+local t = {}
+local offset = array[i].offset
+for x = 1, #data do   
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(array[i].hv) then 
+if tonumber(t[z].value) < tonumber(array[i].lv) or tonumber(t[z].value) > tonumber(array[i].hv) then
+data[z].isok = false
+end
+else
+if tostring(t[z].value) ~= tostring(array[i].lv) then 
+data[z].isok = false  
+end
+end
+end
+end
+for i = 1, #data do   
+if data[i].isok then  
+tab[#tab + 1] = data[i].address   
+end
+end
+if #tab > 0 then   
+return true, tab   
+else
+return false  
+end
+end
+else
+print("type参数错误")   
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memory or array参数错误") 
+gg.toast("memory or array参数错误")
+os.exit()
+end
+end
+function app.memoryread(addr, type)  
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return gg.getValues(t)[1].value  
+else
+return false 
+end
+end
+function app.memorywrite(addr, type, value, freeze)               
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then
+t[1].freeze = freeze
+return gg.addListItems(t)
+else
+return gg.setValues(t)
+end
+else
+return false
+end
+end
+
+--[[配置1]]function js(address,flags,value) local jz={} jz[1]={} jz[1].address=address jz[1].flags=flags jz[1].value=value gg.setValues(jz) end
+--[[配置2]]function jz(py,xl,xgsz) flags=xl value=xgsz so=gg.getRangesList(''..name..'')[1].start js(so+py,xl,xgsz) end
+
+
+----------青衫
+function readWrite(Search,Get,Type,Range,Name) gg.clearResults() gg.setRanges(Range) gg.setVisible(false) if Search[1][1]~=false then gg.searchAddress(Search[1][1],0xFFFFFFFF,Search[1][4] or Type,gg.SIGN_EQUAL,Search[1][5] or 1,Search[1][6] or -1) end gg.searchNumber(Search[1][2],Search[1][4] or Type,false,gg.SIGN_EQUAL,Search[1][5] or 1,Search[1][6] or -1) local count=gg.getResultCount() local result=gg.getResults(count) gg.clearResults() local data={} local base=Search[1][3] if (count > 0) then for i,v in ipairs(result) do v.isUseful=true end for k=2,#Search do local tmp={} local offset=Search[k][2] - base local num=Search[k][1] for i,v in ipairs(result) do tmp[#tmp+1]={} tmp[#tmp].address=v.address+offset tmp[#tmp].flags=Search[k][3] or Type end tmp=gg.getValues(tmp) for i,v in ipairs(tmp) do if v.flags==16 or v.flags==64 then values=tostring(v.value):sub(1,6) num=tostring(num):sub(1,6) else values=v.value end if tostring(values)~=tostring(num) then result[i].isUseful=false end end end for i,v in ipairs(result) do if (v.isUseful) then data[#data+1]=v.address end end if (#data > 0) then local t,t_={},{} local base=Search[1][3] for i=1,#data do for k,w in ipairs(Get) do offset=w[2] - base if w[1]==false then t_[#t_+1]={} t_[#t_].address=data[i]+offset t_[#t_].flags=Type th_=(th_) and th_+1 or 1 else t[#t+1]={} t[#t].address=data[i]+offset t[#t].flags=w[3] or Type t[#t].value=w[1] tg_=(tg_) and tg_+1 or 1 if (w[4]==true) then local item={} item[#item+1]=t[#t] item[#item].freeze=w[4] gg.addListItems(item) end end end end tg=(tg_) and "共写入 "..tg_.." 条数据" or "" th=(th_) and "\n已获取"..th_.."条数据" or "" gg.setValues(t) t_=gg.getValues(t_) gg.loadResults(t_) gg.toast("\n"..Name.."开启成功\n"..tg..th) tg_,th_=nil,nil else gg.toast("\n"..Name.."开启失败",false) return false end else gg.toast(Name.."开启失败") return false end end
+
+
+---------墨染
+function split(szFullString, szSeparator) 
+local nFindStartIndex = 1 
+local nSplitIndex = 1 
+local nSplitArray = {} 
+while true do 
+local nFindLastIndex = string.find
+(szFullString, szSeparator, nFindStartIndex) 
+if not nFindLastIndex then 
+nSplitArray[nSplitIndex] = 
+string.sub(szFullString, nFindStartIndex, string.len
+(szFullString)) 
+break end 
+nSplitArray[nSplitIndex] = string.sub
+(szFullString, nFindStartIndex, nFindLastIndex - 1) 
+nFindStartIndex = nFindLastIndex + string.len
+(szSeparator) 
+nSplitIndex = nSplitIndex + 1 end return 
+nSplitArray end 
+function xgxc(szpy, qmxg) 
+for x = 1, #(qmxg) do 
+xgpy = szpy + qmxg[x]["offset"] 
+xglx = qmxg[x]["type"] 
+xgsz = qmxg[x]["value"] 
+xgdj = qmxg[x]["freeze"] 
+if xgdj == nil or xgdj == "" then 
+gg.setValues({[1] 
+= {address = xgpy, flags = xglx, value = xgsz}}) 
+else 
+gg.addListItems({[1] 
+= {address = xgpy, flags = xglx, 
+freeze = xgdj, value = xgsz}}) end 
+xgsl = xgsl + 1 xgjg = true end end 
+function xqmnb(qmnb) 
+gg.clearResults() 
+gg.setRanges(qmnb[1]["memory"]) 
+gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) 
+if gg.getResultCount() == 0 then 
+gg.toast(qmnb[2]["name"] .. "开启失败") 
+else 
+gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"])
+gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) 
+gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) 
+if gg.getResultCount() == 0 then 
+gg.toast(qmnb[2]["name"] .. "开启失败") 
+else 
+        sl = gg.getResults(999999) 
+sz = gg.getResultCount() 
+        xgsl = 0 if sz > 999999 then 
+sz = 999999 end for i = 1, sz do 
+pdsz = true for v = 4, #(qmnb) do if 
+pdsz == true then 
+pysz = {} pysz[1] 
+= {} pysz[1].address 
+= sl[i].address + qmnb[v]["offset"] pysz[1].flags 
+= qmnb[v]["type"] 
+szpy = gg.getValues(pysz) 
+pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd 
+= split(pdpd, ";") tzszpd 
+= szpd[1] pyszpd = szpd[2] 
+if tzszpd == pyszpd then 
+pdjg = true pdsz = true else 
+pdjg = false pdsz = false end end end if 
+pdjg == true then szpy 
+= sl[i].address xgxc(szpy, qmxg) end end 
+if xgjg == true then 
+gg.toast(qmnb[2]["name"] .. "开启成功\n孤荒大队提示\n祝你游戏愉快\n一共写入" .. xgsl .. "条数据") 
+else 
+gg.toast(qmnb[2]["name"] .. "开启失败") 
+end 
+end 
+end 
+end
+
+
+function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("\n开启成功\n共修改\n"..#data.."条数据") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else gg.toast("开启失败", false) return false end else gg.toast("开启失败") return false end end function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("孤荒大队提示您:\n开启成功\n共修改\n"..#data.."条数据") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else gg.toast("开启失败", false) return false end else gg.toast("开启失败") return false end end 
+
+
+
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "修改失败") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. "修改失败") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. "修改成功,共修改" .. xgsl .. "条数据") else gg.toast(qmnb[2]["name"] .. "修改失败") end end end end
+
+
+local app = {}
+function Assert(data)   --判断
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memory, array)   --判断
+if Assert(memory) and Assert(array) then
+return true
+else
+return false
+end
+end
+function typetab(array, type)   --把所有类型组成一个数组防不写类型
+local datatype = {}
+for i = 1, #array do
+if Assert(array[i].type) then
+table.insert(datatype, i, array[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memorysearch(memory, array, type)   --内存搜索，参数为(内存， 特征码数组， 类型(类型可空))
+gg.setVisible(false)
+local isok = mearrass(memory, array)
+if isok then
+local isok, datatype = typetab(array, type)
+if isok then
+if Assert(array[1].hv) then   --判断主特征码是否有hv，有即范围搜索
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv .. "~" .. array[1].hv, datatype[1])   --有hv进行范围搜索
+else
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv, datatype[1])   --普通搜索
+end
+if gg.getResultCount() == 0 then   --判断搜索到值没
+return false   --没搜到值返回false
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())   --保存搜索到的数据到data
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true   --把搜索到的值，全部设置为true
+end
+for i = 2, #array do
+local t = {}
+local offset = array[i].offset
+for x = 1, #data do   --遍历内存
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(array[i].hv) then   --判断副特征码是否有hv参数
+if tonumber(t[z].value) < tonumber(array[i].lv) or tonumber(t[z].value) > tonumber(array[i].hv) then
+--↑↑↑进行范围判断
+data[z].isok = false   --不符合条件的设置为false
+end
+else
+if tostring(t[z].value) ~= tostring(array[i].lv) then   --普通判断(没有hv参数)
+data[z].isok = false   --不符合设置为false
+end
+end
+end
+end
+for i = 1, #data do   --重新遍历数组
+if data[i].isok then   --判断是否为true(符合条件的)
+tab[#tab + 1] = data[i].address   --把符合条件的地址写入数组
+end
+end
+if #tab > 0 then   --判断地址数组是否大于0，大于0就是搜到了符合条件的值，反之没搜到
+return true, tab   --搜到返回true和地址数组
+else
+return false   --没搜到返回false
+end
+end
+else
+print("type参数错误")   --类型错误
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memory or array参数错误")   --内存或类型错误
+gg.toast("memory or array参数错误")
+os.exit()
+end
+end
+function app.memoryread(addr, type)   --读内存，参数为(地址，类型)
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return true, gg.getValues(t)[1].value   --读到返回true和读到得值
+else
+return false   --反之返回false
+end
+end
+function app.memorywrite(addr, type, value, freeze)   --写内存，参数为(地址，类型，写入得值，是否冻结(可空))
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then   --判断是否有冻结参数
+t[1].freeze = freeze
+--gg.setValues(t)   --这行自行选择，如果有这行，false会修改并保存到列表，如果没这行，false只会保存到列表而不会修改
+return gg.addListItems(t)   --成功返回true
+else
+return gg.setValues(t)   --成功返回true
+end
+else
+return false   --失败
+end
+end
+
+
+
+--↓↓↓用上边的代码进行二次封装出来的指针写法
+qmnb = function(daarr)
+local array = {}
+for i = 1, #daarr["搜索数组"] do
+local data = {["lv"] = daarr["搜索数组"][i][1], ["offset"] = daarr["搜索数组"][i][2], ["type"] = daarr["搜索类型"]}
+table.insert(array, i, data)
+end
+local isok, data = app.memorysearch(daarr["搜索内存"], array)
+if isok then
+for i = 1, #data do
+for x = 1, #daarr["修改数组"] do
+app.memorywrite(data[i] + daarr["修改数组"][x][2], daarr["搜索类型"], daarr["修改数组"][x][1])
+end
+end
+gg.toast(daarr["功能名称"] .. "开启成功，共修改" .. #data * #daarr["修改数组"] .. "条数据")
+else
+gg.toast(daarr["功能名称"] .. "开启失败")
+end
+end
+----上面超级防抓包检测，开启VPN自动格机
+
+
+
+
+local app = {}
+function Assert(data)   --判断
+if data == nil or data == "" or data == "nil" then
+return false
+else
+return true
+end
+end
+function mearrass(memory, array)   --判断
+if Assert(memory) and Assert(array) then
+return true
+else
+return false
+end
+end
+function typetab(array, type)   --把所有类型组成一个数组防不写类型
+local datatype = {}
+for i = 1, #array do
+if Assert(array[i].type) then
+table.insert(datatype, i, array[i].type)
+else
+if Assert(type) then
+table.insert(datatype, i, type)
+else
+return false
+end
+end
+end
+return true, datatype
+end
+function app.memorysearch(memory, array, type)   --内存搜索，参数为(内存， 特征码数组， 类型(类型可空))
+gg.setVisible(false)
+local isok = mearrass(memory, array)
+if isok then
+local isok, datatype = typetab(array, type)
+if isok then
+if Assert(array[1].hv) then   --判断主特征码是否有hv，有即范围搜索
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv .. "~" .. array[1].hv, datatype[1])   --有hv进行范围搜索
+else
+gg.clearResults()
+gg.setRanges(memory)
+gg.searchNumber(array[1].lv, datatype[1])   --普通搜索
+end
+if gg.getResultCount() == 0 then   --判断搜索到值没
+return false   --没搜到值返回false
+else
+local tab = {}
+local data = gg.getResults(gg.getResultCount())   --保存搜索到的数据到data
+gg.clearResults()
+for i = 1, #data do
+data[i].isok = true   --把搜索到的值，全部设置为true
+end
+for i = 2, #array do
+local t = {}
+local offset = array[i].offset
+for x = 1, #data do   --遍历内存
+t[#t + 1] = {}
+t[#t].address = data[x].address + offset
+t[#t].flags = datatype[i]
+end
+local t = gg.getValues(t)
+for z = 1, #t do
+if Assert(array[i].hv) then   --判断副特征码是否有hv参数
+if tonumber(t[z].value) < tonumber(array[i].lv) or tonumber(t[z].value) > tonumber(array[i].hv) then
+--↑↑↑进行范围判断
+data[z].isok = false   --不符合条件的设置为false
+end
+else
+if tostring(t[z].value) ~= tostring(array[i].lv) then   --普通判断(没有hv参数)
+data[z].isok = false   --不符合设置为false
+end
+end
+end
+end
+for i = 1, #data do   --重新遍历数组
+if data[i].isok then   --判断是否为true(符合条件的)
+tab[#tab + 1] = data[i].address   --把符合条件的地址写入数组
+end
+end
+if #tab > 0 then   --判断地址数组是否大于0，大于0就是搜到了符合条件的值，反之没搜到
+return true, tab   --搜到返回true和地址数组
+else
+return false   --没搜到返回false
+end
+end
+else
+print("type参数错误")   --类型错误
+gg.toast("type参数错误")
+os.exit()
+end
+else
+print("memory or array参数错误")   --内存或类型错误
+gg.toast("memory or array参数错误")
+os.exit()
+end
+end
+function app.memoryread(addr, type)   --读内存，参数为(地址，类型)
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+if #t > 0 then
+return true, gg.getValues(t)[1].value   --读到返回true和读到得值
+else
+return false   --反之返回false
+end
+end
+function app.memorywrite(addr, type, value, freeze)   --写内存，参数为(地址，类型，写入得值，是否冻结(可空))
+local t = {}
+t[1] = {}
+t[1].address = addr
+t[1].flags = type
+t[1].value = value
+if #t > 0 then
+if Assert(freeze) then   --判断是否有冻结参数
+t[1].freeze = freeze
+--gg.setValues(t)   --这行自行选择，如果有这行，false会修改并保存到列表，如果没这行，false只会保存到列表而不会修改
+return gg.addListItems(t)   --成功返回true
+else
+return gg.setValues(t)   --成功返回true
+end
+else
+return false   --失败
+end
+end
+
+
+
+--↓↓↓用上边的代码进行二次封装出来的指针写法
+qmnb = function(daarr)
+local array = {}
+for i = 1, #daarr["搜索数组"] do
+local data = {["lv"] = daarr["搜索数组"][i][1], ["offset"] = daarr["搜索数组"][i][2], ["type"] = daarr["搜索类型"]}
+table.insert(array, i, data)
+end
+local isok, data = app.memorysearch(daarr["搜索内存"], array)
+if isok then
+for i = 1, #data do
+for x = 1, #daarr["修改数组"] do
+app.memorywrite(data[i] + daarr["修改数组"][x][2], daarr["搜索类型"], daarr["修改数组"][x][1])
+end
+end
+gg.toast(daarr["功能名称"] .. "开启成功，共修改" .. #data * #daarr["修改数组"] .. "条数据")
+else
+gg.toast(daarr["功能名称"] .. "开启失败")
+end
+end
+
+--4399客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--网易客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--tt客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--vivo客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--九游客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--opp 一加客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--华为客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--魅族客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--一号玩家客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--国际服
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.ko/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--小米客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--7272客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--不知道的客户端
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/msg')
+os.remove('rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Photo')
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/NTDetectCache_temp")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/NTDetectCache")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+--修复日服闪退
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/ghoul_loading_loop.mp4")
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/cg.mp4")
+
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/android_default.mp4")
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/S15_IceSnowFestival.mp4")
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/og_loading_hyxd0112_loop.mp4")
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/og_loading_hyxd0112_in.mp4")	
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/ghoul_loading_1.mp4")
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/ghoul_loading_loop.mp4")
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/cg.mp4")
+	os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/cglist.txt")
+
+
+
+gg.alert("注：透视上色有检测尽量不要用透视 若非要开透视也不要开上色 因春节比较繁忙 所以临时更新比较匆忙 大家先用后期会更新的")
+ gg.alert("5月8日公告更新 每周星期天和星期三晚上为人工检测期，请不要大号使用，以免第二天追封，请不要不开辅助，直接框架进游戏，否则封号")
+    gg.alert("5月8日公告必看  请所有人吧应用商店的自动升级关闭掉，以及一些软件空间，游戏中心的自动升级都关闭掉。如有功能失败请联系我 开锁的建议开锁防功能，可以降低检测。 ！！！")
+gg.alert("作者:晓白，无名，酷奇;如果发现问题请联系QQ2448760582；欢迎您的反馈")
+
+--↑↑↑
+function yiyz_Main()
+menu = gg.choice({
+"大号专区",
+"小号专区",
+"娱乐专区",
+"恢复专区",
+"透视专区",
+"华为专区",
+"退出脚本"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+ if menu == 1 then
+    aa1()
+  end
+  if menu == 2 then
+   qw2()
+  end
+  if menu == 3 then
+   aa3()
+  end
+  if menu == 4 then
+   aa4()
+  end
+  if menu == 5 then
+   aa5()
+  end
+  if menu == 6 then
+   aa6()
+  end
+  if menu == 7 then
+   Exit()
+  end
+  XGCK = -1
+end
+
+
+
+function aa1()
+menu2 = gg.multiChoice({
+"新防封 (登陆界面必开)",
+"无",
+"人物天线(出生岛)",
+"骁龙上色",
+"骁龙透视",
+"小范围头(出生岛)",
+"小范围甲(出生岛)",
+"微范围午后(登录界面成功一步即可)",
+"锁头锁甲防框架版(登录界面)",
+"锁头锁甲防root版(登录界面)",
+"防追封(关闭游戏后或登录游戏前)",
+"无",
+"瞬移专区",
+"定制防封(登录界面此功能需要额外付费)",
+"▶返回主页◀"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu2 == nil then else
+if menu2[1] ==  true then z1() end
+if menu2[2] ==  true then z2() M() end
+if menu2[3] ==  true then z3() end
+if menu2[4] ==  true then z4() end
+if menu2[5] ==  true then z5() end
+if menu2[6] ==  true then z6() end
+if menu2[7] ==  true then z7() end
+if menu2[8] ==  true then z8() end
+if menu2[9] ==  true then z9() end
+if menu2[10] ==  true then z10() end
+if menu2[11] ==  true then z11() end
+if menu2[12] ==  true then z12() end
+if menu2[13] ==  true then z13() end
+if menu2[14] ==  true then z14() end
+if menu2[15] == true then HOME() end
+end
+GLWW=-1
+end
+
+
+function qw2()
+menu3 = gg.multiChoice({
+"中范围锁头(出生岛)",
+"中范围锁甲(出生岛)",
+"全枪午后(登录界面成功一部即可)",
+"游泳加速(水边开)",
+"全图除草(落地开)",
+"自定义部分枪换弹夹",
+"15高跳",
+"蹲趴微加速",
+"飞行加速(出生岛)",
+"自定义人物加速(失败往下拉有备用版)",
+"秒落地(飞机上开启重开一次恢复)",
+"秒药秒扶队友",
+"还我飘飘拳(靶场或者落地开启建议靶场拳头范围失败的开近战范围)",
+"新范围拾取(登录界面)",
+"自定义拾取楼上楼下(落地)",
+"新子弹穿墙",
+"人物跑A(大号禁用)",
+"root自定义人物加速(出生岛)",
+"root秒落地(重开一次恢复)",
+"大范围锁甲2号(出生岛)",
+"中范围锁甲2号(出生岛)",
+"小范围锁甲2号(出生岛)",
+"近战秒杀",
+"近战范围",
+"▶返回主页◀"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu3 == nil then else
+if menu3[1] == true then x1() end
+if menu3[2] == true then x2() end
+if menu3[3] == true then x3() end
+if menu3[4] == true then x4() end
+if menu3[5] == true then x5() end
+if menu3[6] == true then x6() end
+if menu3[7] == true then x7() end
+if menu3[8] == true then x8() end
+if menu3[9] == true then x9() end
+if menu3[10] == true then x10() end
+if menu3[11] == true then x11() end
+if menu3[12] == true then x12() end
+if menu3[13] == true then x13() end
+if menu3[14] == true then x14() end
+if menu3[15] == true then x15() end
+if menu3[16] == true then x16() end
+if menu3[17] == true then x17() end
+if menu3[18] == true then x18() end
+if menu3[19] == true then x19() end
+if menu3[20] == true then x20() end
+if menu3[21] == true then x21() end
+if menu3[22] == true then x22() end
+if menu3[23] == true then x23() end
+if menu3[24] == true then x24() end
+if menu3[25] == true then HOME() end
+end
+GLWW=-1
+end
+
+
+function aa3()
+menu4 = gg.multiChoice({
+"自定义锁头(出生岛开启)",
+"自定义锁甲(出生岛开启",
+"自定义高跳",
+"轿车加速(华为专区有自定义全车加速)",
+"转圈圈落地开",
+"聚点午后(成功一部即可)",
+"全车锁油(登录界面)",
+"子弹穿墙(出生岛)",
+"上房上树落地开",
+"水下行走再开一次恢复",
+"人车穿墙(落地开)",
+"无限手雷靶场丢雷开",
+"自定义子弹射速(落地开不稳不建议开启)",
+"全图全除落地开",
+"踏空有人的地方开",
+"拾取范围扩大",
+"趴下路飞(登录界面)",
+"自定义站立路飞(登录界面)",
+"向前远跳(靶场)",
+"👉返回主页👈"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu4 == nil then else
+
+if menu4[1] == true then w1() end
+
+if menu4[2] == true then w2() end
+
+if menu4[3] == true then w3() end
+
+if menu4[4] == true then w4() end
+
+if menu4[5] == true then w5() end
+
+if menu4[6] == true then w6() end
+
+if menu4[7] == true then w7() end
+
+if menu4[8] == true then w8() end
+
+if menu4[9] == true then w9() end
+
+if menu4[10] == true then w10() end
+
+if menu4[11] == true then w11() end
+
+if menu4[12] == true then w12() end
+
+if menu4[13] == true then w13() end
+
+if menu4[14] == true then w14() end
+
+if menu4[15] == true then w15() end
+
+if menu4[16] == true then w16() end
+
+if menu4[17] == true then w17() end
+
+if menu4[18] == true then w18() end
+
+if menu4[19] == true then w19() end
+
+if menu4[20] == true then HOME() end
+end
+GLWW=-1
+end
+
+function aa4()
+menu5 = gg.multiChoice({
+"人物穿墙恢复(无)",
+"车穿墙恢复(无)",
+"锁油恢复(无)",
+"脚步雷达在开一次恢复",
+"快速打药秒服队友恢复",
+"上房上树恢复(无)",
+"子弹全穿恢复(无)",
+"全图全除恢复(落地开)",
+"子弹射速恢复",
+"无限手雷恢复(随时恢复)",
+"踏空恢复(无)",
+"人物地皮(测试功能禁止坐车)",
+"自定义遁地",
+"👉返回主页👈"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu5 == nil then else
+
+if menu5[1] == true then t1() end
+
+if menu5[2] == true then t2() end
+
+if menu5[3] == true then t3() end
+
+if menu5[4] == true then t4() end
+
+if menu5[5] == true then t5() end
+
+if menu5[6] == true then t6() end
+
+if menu5[7] == true then t7() end
+
+if menu5[8] == true then t8() end
+
+if menu5[9] == true then t9() end
+
+if menu5[10] == true then t10() end
+
+if menu5[11] == true then t11() end
+
+if menu5[12] == true then t12() end
+
+if menu5[13] == true then t13() end
+
+if menu5[14] == true then HOME() end
+end
+GLWW=-1
+end
+
+function aa5()
+menu6 = gg.multiChoice({
+"骁龙透视上色上边的无效果开这个(靶场)",
+"透视(靶场)",
+"845透视上色(靶场)",
+"845透视(靶场)",
+"865透视上色(靶场)",
+"865透视(靶场)",
+"透视上色3(靶场)",
+"附近人数报数",
+"👉返回主页👈"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu6 == nil then else
+if menu6[1] == true then y1() end
+
+if menu6[2] == true then y2() end
+
+if menu6[3] == true then y3() y4() y5() end
+
+if menu6[4] == true then y6() y7() y8() end
+
+if menu6[5] == true then y9() end
+
+if menu6[6] == true then y10() end
+
+if menu6[7] == true then y11() y12() end
+
+if menu6[8] == true then y13() end
+
+if menu6[9] == true then HOME() end
+end
+GLWW=-1
+end
+
+function aa6()
+menu7 = gg.multiChoice({
+"麒麟联发科通用透视(出生岛)",
+"麒麟联发科靶场透视推荐(靶场)",
+"麒麟新图上色联发科自测和谐(出生岛)",
+"自动瞄准(登陆界面开启)",
+"麒麟天黑除草除雾(出生岛)",
+"麒麟老图地图变暗和谐(出生岛)",
+"麒麟新图地图变暗和谐(出生岛)",
+"解封设备",
+"通用全局上色",
+"自定义车加速(落地)",
+"子弹穿墙(在开一次恢复)",
+"麒麟老图上色黄色(一把只能开一种颜色出生岛开)",
+"噩梦地图上色红色",
+"麒麟雪天透视(出生岛)",
+"麒麟雪天上色(出生岛)",
+"麒麟雪天除雪(出生岛开启透视会消失)",
+"麒麟老图上色白色(出生岛)",
+"使命召唤最新版辅助",
+"👉返回主页👈"},
+nil, os.date("晓白，无名，酷奇提示3月14日已更新有疑问或使用问题了反馈本人\n北京时间\n%Y年%m月%d日%H时%M分%S秒"))
+if menu7[1] == true then q1() end
+
+if menu7[2] == true then q2() end
+
+if menu7[3] == true then q3() end
+
+if menu7[4] == true then q4() end
+
+if menu7[5] == true then q5() end
+
+if menu7[6] == true then q6() end
+
+if menu7[7] == true then q7() end
+
+if menu7[8] == true then q8() end
+
+if menu7[9] == true then q9() end
+
+if menu7[10] == true then q10() end
+
+if menu7[11] == true then q11() end
+
+if menu7[12] == true then q12() end
+
+if menu7[13] == true then q13() end
+
+if menu7[14] == true then q14() end
+
+if menu7[15] == true then q15() end
+
+if menu7[16] == true then q16() end
+
+if menu7[17] == true then q17() end
+
+if menu7[18] == true then q18() end
+
+if menu7[19] == true then HOME() end
+end
+GLWW=-1
+
+
+--晓白，无名，酷奇
+function z1()
+g = {}
+g.last = gg.getFile()
+g.data = loadfile(g.last)
+g.cpp = g.data
+if g.cpp ~= nil then
+g.data = nil
+ppb = g.last:match("[^/]+$")
+ppi = "lohhhggg"
+pu = gg.getResults(5000)
+os.rename("" .. g.last .. "", "" .. g.last:gsub("/[^/]+$", "") .. "/" .. ppi .. "")
+prt = loadfile("" .. g.last:gsub("/[^/]+$", "") .. "/" .. ppi .. "")
+end
+if prt ~= nil then
+os.rename("" .. g.last:gsub("/[^/]+$", "") .. "/" .. ppi .. "", "" .. g.last:gsub("/[^/]+$", "") .. "/" .. ppb .. "")
+gg.command('rm -r /sdcard/byxt.txt')
+os.remove('/sdcard/byxt.txt') 
+os.remove('/sdcard/gun.txt') 
+os.exit()
+end	
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+    gg.alert("正在载入服务器脚本请稍等.....")
+
+    os.exit()
+  end
+end
+
+
+fff1 = 0
+fff2 = 0
+fff3 = 0
+fff4 = 0
+fff5 = 0
+function a1()
+  if fff1 == 0 then
+    ff1()
+  end
+  if fff2 == 0 then
+    ff2()
+  end
+  if fff3 == 0 then
+    ff3()
+  end
+  if fff4 == 0 then
+    ff4()
+  end
+  if fff5 == 0 then
+    ff5()
+  end
+  if fff1 == 0 or fff2 == 0 or fff3 == 0 or fff4 == 0 or fff5 == 0 then
+    gg.sleep(500)
+    gg.toast("亲你还有防封没开启成功，请在开启一次即可")
+  end
+  if fff1 == 1 and fff2 == 1 and fff3 == 1 and fff4 == 1 and fff5 == 1 then
+    gg.sleep(500)
+    gg.toast("亲，你的防封全部开启成功了，可以正常游戏")
+  end
+  if ssjc == 0 then
+    gg.alert("亲，程序出错，你这样不能使用新客户端哦，请不要在进入游戏了，否则封号，请立即反馈给幻儿^O^如果你操作了防拦截或者你用的是老版本446客户端可以无视此消息！")
+  end
+end
+
+  local memory = 37
+  local array = {
+    {lv = 1728088958, type = 4},
+    {
+      lv = 90308608,
+      offset = 8,
+      type = 4
+    },
+    {
+      lv = 549376,
+      offset = 12,
+      type = 4
+    },
+    {
+      lv = 1845495929,
+      offset = 16,
+      type = 4
+    }
+  }
+  local isok, data = app.memorysearch(memory, array)
+  if isok then
+    do
+      do
+        for _FORV_7_ = 1, #data do
+          app.memorywrite(data[_FORV_7_] + 16, 4, 1845495930)
+          app.memorywrite(data[_FORV_7_] + 56, 4, 42139657)
+        end
+      end
+    end
+    gg.toast("防封第一步开启成功")
+    fff1 = 1
+  else
+    gg.toast("防封第一步开启失败")
+  end
+  local memory = 37
+  local array = {
+    {lv = 1048444928, type = 4},
+    {
+      lv = 1895851390,
+      offset = -16,
+      type = 4
+    },
+    {
+      lv = 352768,
+      offset = -20,
+      type = 4
+    },
+    {
+      lv = 90308613,
+      offset = -24,
+      type = 4
+    }
+  }
+  local isok, data = app.memorysearch(memory, array)
+  if isok then
+    do
+      do
+        for _FORV_7_ = 1, #data do
+          app.memorywrite(data[_FORV_7_] + -16, 4, 1895851392)
+        end
+      end
+    end
+    gg.toast("防封第二步开启成功")
+    fff2 = 1
+  else
+    gg.toast("防封第二步开启失败")
+  end
+  local memory = 37
+  local array = {
+    {lv = 1946157196, type = 4},
+    {
+      lv = 56754178,
+      offset = 4,
+      type = 4
+    },
+    {
+      lv = 287232,
+      offset = -4,
+      type = 4
+    },
+    {
+      lv = 23199744,
+      offset = -8,
+      type = 4
+    }
+  }
+  local isok, data = app.memorysearch(memory, array)
+  if isok then
+    do
+      do
+        for _FORV_7_ = 1, #data do
+          app.memorywrite(data[_FORV_7_] + 0, 4, 1946157197)
+        end
+      end
+    end
+    gg.toast("防封第三步开启成功")
+    fff3 = 1
+  else
+    gg.toast("防封第三步开启失败")
+  end
+  local memory = 37
+  local array = {
+    {lv = 1862271587, type = 4},
+    {
+      lv = 2030043267,
+      offset = 12,
+      type = 4
+    },
+    {
+      lv = 2003828737,
+      offset = 28,
+      type = 4
+    },
+    {
+      lv = 33792,
+      offset = 32,
+      type = 4
+    }
+  }
+  local isok, data = app.memorysearch(memory, array)
+  if isok then
+    do
+      do
+        for _FORV_7_ = 1, #data do
+          app.memorywrite(data[_FORV_7_] + 0, 4, 1862271588)
+        end
+      end
+    end
+    gg.toast("防封第四步开启成功")
+    fff4 = 1
+  else
+    gg.toast("防封第四步开启失败")
+  end
+  local memory = 37
+  local array = {
+    {lv = 5271552, type = 4},
+    {
+      lv = 2113931362,
+      offset = 24,
+      type = 4
+    },
+    {
+      lv = 57955584,
+      offset = 32,
+      type = 4
+    },
+    {
+      lv = 1879050083,
+      offset = 56,
+      type = 4
+    }
+  }
+  local isok, data = app.memorysearch(memory, array)
+  if isok then
+    do
+      do
+        for _FORV_7_ = 1, #data do
+          app.memorywrite(data[_FORV_7_] + 56, 4, 1879050084)
+        end
+      end
+    end
+    gg.toast("防封第五步开启成功")
+    fff5 = 1
+  else
+    gg.toast("防封第五步开启失败")
+  end
+qmnb = {
+{["memory"] = 5},
+{["name"] = "防封第一步"},
+{["value"] = 1660946786, ["type"] = 4},
+{["lv"] = 1728053636, ["offset"] = 24, ["type"] = 4},
+{["lv"] = 1795162500, ["offset"] = 40, ["type"] = 4},
+{["lv"] = 1644170082, ["offset"] = 56, ["type"] = 4},
+}
+qmxg = {
+{["value"] = 1884972159, ["offset"] = 0, ["type"] = 4},
+{["value"] = 1884972159, ["offset"] = 24, ["type"] = 4},
+{["value"] = 1884972159, ["offset"] = 40, ["type"] = 4},
+{["value"] = 1884972159, ["offset"] = 56, ["type"] = 4},
+}
+xqmnb(qmnb)
+
+local memory = 5
+local array = {
+{["lv"] = 1879050338, ["type"] = 4},
+{["lv"] = 2030045538 , ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 4, 1882088818)
+app.memorywrite(data[i] + 24, 4, 1882088818)
+app.memorywrite(data[i] + 34, 4, 1882088818)
+end
+gg.toast("防2  开启成功")
+else
+gg.toast("失败")
+end
+
+local memory = 5
+local array = {
+{["lv"] = -1703935995, ["type"] = 4},
+{["lv"] = 1644168546, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 125370374, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 90308608, ["offset"] = 40, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+
+for i = 1, #data do
+app.memorywrite(data[i] + 8, 4, 1882088818)
+app.memorywrite(data[i] + -58, 4, 1882088818)
+app.memorywrite(data[i] + 124, 4, 1882088818)
+end
+gg.toast("防3  开启成功")
+else
+gg.toast("失败")
+end
+	local memory = 5
+	local array = {
+		{["lv"] = 1845495929, ["type"] = 4},
+		{["lv"] = 25427968 , ["offset"] = 4, ["type"] = 4},
+		{["lv"] = 33792 , ["offset"] = 8, ["type"] = 4},
+		}
+	local isok, data = app.memorysearch(memory, array)
+	if isok then
+		for i = 1, #data do
+			app.memorywrite(data[i] + 12 , 4, -1082130432)
+		end
+		gg.toast("防4   开启成功")
+	else
+		gg.toast("失败")
+
+end
+
+end
+
+function M()
+
+end
+
+function z2()
+
+end
+
+
+
+function z3()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1065302314, ["type"] = 4},
+{["lv"] = 1033857818 , ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = 20, ["type"] = 4},
+{["lv"] = -1113625830, ["offset"] = 32, ["type"] = 4},
+{["lv"] = 1065302314, ["offset"] = 40, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 20, 4, 1176242176)
+end
+gg.toast("女天线开启成功")
+else
+gg.toast("女天线开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = -1117303261, ["type"] = 4},
+{["lv"] = 979430248 , ["offset"] = 4, ["type"] = 4},
+{["lv"] = -1129590894, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 4, 1176243200)
+end
+gg.toast("男天线开启成功")
+else
+gg.toast("男天线开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = -1145771647, ["type"] = 4},
+{["lv"] = -1145771647 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = -1082130684, ["offset"] = 24, ["type"] = 4},
+{["lv"] = 990593942, ["offset"] = 28, ["type"] = 4},
+{["lv"] = 977746621, ["offset"] = 36, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 36, 4, -971228160)
+end
+gg.toast("新版天线开启成功")
+else
+gg.toast("新版天线开启失败")
+end
+end
+
+function z4()
+gg.clearResults()
+  gg.setRanges(gg.REGION_VIDEO)
+  gg.searchNumber("4,939D;0.99900001287F::", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+  gg.searchNumber("0.99900001287", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+  gg.getResults(1000)
+  gg.editAll("180",gg.TYPE_FLOAT)
+  gg.toast("上色开启")
+end
+
+
+
+
+function z5()
+    gg.clearResults()
+  gg.setRanges(gg.REGION_VIDEO)
+  gg.searchNumber("4,939D;2::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.getResults(1000)
+  gg.editAll("16.1", gg.TYPE_FLOAT)
+  gg.toast("透视中")
+	gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("11,266.75F;24,581.5F;2.0F;1,024D;3,104D;537,149,443D;3,105D;3.87506699562F::153", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(1000)
+gg.editAll("16.1", gg.TYPE_FLOAT)
+gg.toast("透视开启成功")
+end
+
+
+function z6()
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.15000000596, ["type"] = 16},
+{["lv"] = 0   , ["offset"] = -4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1 , ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 0.243)
+end
+gg.toast("超小锁头开启成功")
+else
+gg.toast("超小锁头开启失败")
+end
+end
+
+
+function z7()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1046562734, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1065353216  , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 4, 1055149313)
+end
+gg.toast("小锁甲开启成功")
+else
+gg.toast("小锁甲开启失败")
+end
+end
+
+
+
+function z8()
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -4 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1084407808)
+end
+gg.toast("微范围无后开启成功")
+else
+gg.toast("微范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -72 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1084407808)
+end
+gg.toast("微范围无后开启成功")
+else
+gg.toast("微范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -24 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1084407808)
+end
+gg.toast("微范围无后开启成功")
+else
+gg.toast("微范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = 2 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1084407808)
+end
+gg.toast("微范围无后开启成功")
+else
+gg.toast("微范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1081425920, ["type"] = 4},
+{["lv"] = 1084407808 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1076114227, ["offset"] = 32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 16, 4, 1082515456)
+end
+gg.toast("无后检测开启成功")
+else
+gg.toast("无后检测开启失败")
+end
+end
+
+function z9()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1073899110, ["type"] = 4},
+{["lv"] = 100 , ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1073741824, ["offset"] = 32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -4, 64, 1.2)
+app.memorywrite(data[i] + 12, 64, 0.6)
+end
+gg.toast("框架锁头锁甲防开启成功")
+else
+gg.toast("框架锁甲锁头防开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1071434956, ["type"] = 4},
+{["lv"] = 1073899110 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1072693248, ["offset"] = 32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 64, 1.2)
+app.memorywrite(data[i] + 28, 64, 0.6)
+end
+gg.toast("框架锁头锁甲防开启成功")
+else
+gg.toast("框架锁甲锁头防开启失败")
+end
+end
+
+function z10()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1071434956, ["type"] = 4},
+{["lv"] = 1073899110 , ["offset"] = 24, ["type"] = 4},
+{["lv"] = 1072693248, ["offset"] = 48, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 20, 64, 1.2)
+app.memorywrite(data[i] + 44, 64, 0.6)
+end
+gg.toast("root锁头锁甲防开启成功")
+else
+gg.toast("root锁甲锁头防开启失败")
+end
+end
+
+function z11()
+      a = gg.choice({
+        "4399客户端",
+        "网易客户端",
+        "Tt客户端",
+        "vivo客户端",
+        "九游客户端",
+        "一号玩家客户端",
+        "华为客户端",
+        "魅族客户端",
+        "一加和opp客户端",
+        "国际服客户端",
+        "小米客户端",
+        "7272客户端",
+        "bazhang客户端断"
+      }, 1, "请在登录游戏前或者游戏结束后，或者关闭游戏后执行，点击一下就执行成功了")
+      if a == 1 then
+        os.remove("rm-r/storage/emulated/0/Android/data/com.netease.hyxd.m4399/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 2 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 3 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.tzsy/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 4 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.vivo/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 5 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.aligames/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 6 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 7 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.huawei/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 8 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mz/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 9 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 10 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.ko/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 11 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mi/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 12 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.qihoo/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+      if a == 13 then
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/cache")
+        os.remove("rm -r /storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Cache/LocalShaders")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/cache/crashHunter_compass.txt")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Config")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/NTDetectCache_temp")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/NTDetectCache")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Cache/LocalShaders/compiled.es3")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+        os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4051BDD0000f042.dat")
+      end
+    end
+
+
+function z12()
+
+end
+
+function z13()
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+    gg.alert("正在载入服务器脚本请稍等.....")
+
+    os.exit()
+  end
+end
+ZY="http://www.iyuji.cn/iyuji/s/UHhabVdUcTNyYTJubzRhak01alVIQT09/1618785439388711"
+local ZY = gg.makeRequest(ZY).content
+local ZY2 = ZY:match('【链接】(.-)【链接】')
+local ZY3 = ZY:match('【状态】(.-)【状态】')
+local ZY4 = ZY:match('【公告】(.-)【公告】')
+local ZY6 = ZY:match('【关闭公告】(.-)【关闭公告】')
+if ZY3=="开"then
+gg.alert(ZY4)
+ end
+if ZY3=="关"then
+os.exit()
+end 
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+    gg.alert("正在载入服务器脚本请稍等.....")
+
+    os.exit()
+  end
+end
+pcall(load(gg.makeRequest("http://"..ZY2).content))
+end
+
+function z14()
+tmp=loadfile('/sdcard/Android/.cf')
+tmp=tmp and tmp() or {}
+thismm='3956'
+while(true)do
+if tmp then
+if tmp[1]==thismm then
+if cs==1 then 
+gg.saveVariable(tmp,'/sdcard/Android/.cf') end
+break else --os.exit()
+end
+else os.exit() end
+tmp=gg.prompt({'请输入设备机器码'},{''},{'text'})
+cs=1
+end
+local memory = 4+1+32
+local array = {
+{["lv"] = 90308608, ["type"] = 4},
+{["lv"] = 1845495929, ["offset"] = 8,["type"] = 4},
+{["lv"] = -2080309648, ["offset"] = 32, ["type"] = 4},
+{["lv"] = 1728053636, ["offset"] = 44, ["type"] = 4},
+{["lv"] = 164608, ["offset"] = -12, ["type"] = 4},
+{["lv"] = 140967941, ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 8, 4, 1845495930)
+app.memorywrite(data[i] + 32, 4, 2030045031)
+app.memorywrite(data[i] + 44, 4, 1728053635)
+end
+gg.toast("防封开启成功")
+else
+gg.toast("防封开启失败")
+end
+end
+
+
+function x1()
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.15000000596, ["type"] = 16},
+{["lv"] = 0   , ["offset"] = -4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1 , ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 0.99)
+end
+gg.toast("中锁头开启成功")
+else
+gg.toast("中锁头开启失败")
+end
+end
+
+
+
+function x2()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1046562734, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1065353216  , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 4, 1057635697)
+end
+gg.toast("中锁甲开启成功")
+else
+gg.toast("中锁甲开启失败")
+end
+end
+
+
+
+
+function x3()
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -4 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1087604736)
+end
+gg.toast("范围无后开启成功")
+else
+gg.toast("范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -72 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1087604736)
+end
+gg.toast("范围无后开启成功")
+else
+gg.toast("范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = -24 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1087604736)
+end
+gg.toast("范围无后开启成功")
+else
+gg.toast("范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 700, ["type"] = 64},
+{["lv"] = 2 , ["offset"] = -8, ["type"] = 1},
+{["lv"] = 4.18359375, ["offset"] = 4, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 4, 1087604736)
+end
+gg.toast("范围无后开启成功")
+else
+gg.toast("范围无后开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1081425920, ["type"] = 4},
+{["lv"] = 1087604736 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1076114227, ["offset"] = 32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 16, 4, 1082515456)
+end
+gg.toast("无后检测开启成功")
+else
+gg.toast("无后检测开启失败")
+end
+end
+
+
+
+function x4()
+local memory = 4+1+32
+local array = {
+{["lv"] = 200.0, ["type"] = 64},
+{["lv"] = 2.75, ["offset"] = 48, ["type"] = 64},
+{["lv"] = 2.5, ["offset"] = 64, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 48, 64, 9.5)
+app.memorywrite(data[i] + 64, 64, 9.5)
+end
+gg.toast("河神附体开启成功")
+else
+gg.toast("河神附体开启失败")
+end
+end
+
+function x5()
+local memory = 4
+local array = {
+{["lv"] = 5126, ["type"] = 4},
+{["lv"] = 3, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 16, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 4, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 80, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 10, ["offset"] = 28, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 28, 4, 0)
+end
+gg.toast("小伙拔草开启成功")
+else
+gg.toast("小伙拔草开启失败")
+end
+end
+
+function x6()
+gg.alert("请不要超过1.5，超过封号,大号尽量别用")
+local memory = 4+1+32
+local array = {
+{["lv"] = -1080788255, ["type"] = 4},
+{["lv"] = 1072902963 , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1072798105, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1072693248, ["offset"] = -48, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 大号修改为1.4以下 越大越快不要超过5，不然没法换子弹"}, {[1] ="1.4"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -52, 64, a[1])
+end
+gg.toast("自定义步枪秒换开启成功")
+else
+gg.toast("自定义步枪秒换开启失败")
+end
+end
+
+function x7()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1082081280 , ["type"] = 4},
+{["lv"] = 1076101120  , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -20, 64, 15)
+end
+gg.toast("高跳开启成功")
+else
+gg.toast("高跳开启失败")
+end
+end
+
+function x8()
+local memory = 4
+local array = {
+{["lv"] = 2.9, ["type"] = 64},
+{["lv"] = 1.25, ["offset"] = 48, ["type"] = 64},
+{["lv"] = 4.4, ["offset"] = 64, ["type"] = 64},
+{["lv"] = 4.0, ["offset"] = 80, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 48, 64, 2.5)
+app.memorywrite(data[i] + 64, 64, 5.8)
+app.memorywrite(data[i] + 80, 64, 5.5)
+end
+gg.toast("伏地魔上身成功")
+else
+gg.toast("伏地魔上身失败")
+end
+
+local memory = 4
+local array = {
+{["lv"] = 2.1, ["type"] = 64},
+{["lv"] = 1.25, ["offset"] = 48, ["type"] = 64},
+{["lv"] = 4.4, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 4.0, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 48, 64, 2.5)
+app.memorywrite(data[i] + 32, 64, 5.8)
+app.memorywrite(data[i] + 16, 64, 5.5)
+end
+gg.toast("伏地魔上身成功")
+else
+gg.toast("伏地魔上身失败")
+end
+end
+
+function x9()
+local memory = 4
+local array = {
+{["lv"] = -0.1, ["type"] = 64},
+{["lv"] = 0.6, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 0.4, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 10.0, ["offset"] = 48, ["type"] = 64},
+{["lv"] = 0.436, ["offset"] = 80, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 64, 150)
+end
+gg.toast("飞行加速开启成功")
+else
+gg.toast("飞行加速开启失败")
+end
+end
+
+function x10()
+gg.alert("重要警告 此功能已加服务器检测，大号禁止使用！！！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1073322393, ["type"] = 4},
+{["lv"] = 1075052544, ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1074528256, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1075380224, ["offset"] = -48, ["type"] = 4},
+{["lv"] = 1075576832, ["offset"] = -64, ["type"] = 4},
+{["lv"] = 6, ["offset"] = -72, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为9.5"}, {[1] ="9.5"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -4,  64,  a[1])
+app.memorywrite(data[i] + -20, 64, a[1])
+app.memorywrite(data[i] + -36, 64, a[1])
+app.memorywrite(data[i] + -52, 64, a[1])
+app.memorywrite(data[i] + -68, 64, a[1])
+end
+gg.toast("持枪加速开启成功")
+else
+gg.toast("持枪加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1.57, ["type"] = 64},
+{["lv"] = 3.14, ["offset"] = -32, ["type"] = 64},
+{["lv"] = 1073322393, ["offset"] = -44, ["type"] = 4},
+{["lv"] = 1075052544, ["offset"] = -60, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为9，越大越快"}, {[1] ="9"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -48, 64, a[1])
+app.memorywrite(data[i] + -64, 64, a[1])
+end
+gg.toast("全持枪加速第一步开启成功")
+else
+gg.toast("全持枪加速第一步开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1074528256, ["type"] = 4},
+{["lv"] = 1075380224, ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1075576832, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 6, ["offset"] = -40, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为9，越大越快"}, {[1] ="9"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -4,  64,  a[1])
+app.memorywrite(data[i] + -20, 64, a[1])
+app.memorywrite(data[i] + -36, 64, a[1])
+end
+gg.toast("全持枪加速第二步开启成功")
+else
+gg.toast("全持枪加速第二步开启失败")
+end
+end
+
+
+function x11()
+local memory = 16384
+local array = {
+{["lv"] = 1051772663, ["type"] = 4},
+{["lv"] = 1000.0, ["offset"] = 4, ["type"] = 64},
+{["lv"] = 1083129856, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1051772663, ["offset"] = 0x30, ["type"] = 4}}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 64, 200)
+end
+gg.toast("秒落地开启成功")
+else
+
+local memory = 16384
+local array = {
+{["lv"] = 1051772663, ["type"] = 4},
+{["lv"] = 200.0, ["offset"] = 4, ["type"] = 64},
+{["lv"] = 1080623104, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1051772663, ["offset"] = 0x30, ["type"] = 4}}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 64, 1000)
+end
+gg.toast("秒落地关闭")
+else
+gg.toast("秒落地失败")
+end
+end
+end
+
+function x12()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1099511628, ["type"] = 4},
+{["lv"] = 1075576832, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1072693248, ["offset"] = 100, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 100, 4, 0)
+end
+gg.toast("秒药开启成功")
+else
+gg.toast("秒药开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.033, ["type"] = 64},
+{["lv"] = 1.0, ["offset"] = -80, ["type"] = 64},
+{["lv"] = 60.0, ["offset"] = -64, ["type"] = 64},
+{["lv"] = 1000.0, ["offset"] = -48, ["type"] = 64},
+{["lv"] = 30.0, ["offset"] = -32, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -80, 64, 0)
+end
+gg.toast("秒药开启成功")
+else
+gg.toast("秒药开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1000.0, ["type"] = 64},
+{["lv"] = 1.0, ["offset"] = -48, ["type"] = 64},
+{["lv"] = 60.0, ["offset"] = -24, ["type"] = 64},
+{["lv"] = 30.0, ["offset"] = 24, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -48, 64, 0)
+end
+gg.toast("root秒药开启成功")
+else
+gg.toast("root秒药开启失败")
+end
+end
+
+function x13()
+local memory = 4+1+32
+local array = {
+{["lv"] = 6.40981712152211E-10, ["type"] = 16},
+{["lv"] = 2.6353108655694013E23, ["offset"] = 4, ["type"] = 16},
+{["lv"] = 9.316427742678722E-39, ["offset"] = 8, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 468, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 468, 16, 99999)
+end
+gg.toast("第一步开启成功")
+else
+gg.toast("第一步开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 6.40981712152211E-10, ["type"] = 16},
+{["lv"] = 2.6353108655694013E23, ["offset"] = 4, ["type"] = 16},
+{["lv"] = 9.316427742678722E-39, ["offset"] = 8, ["type"] = 16},
+{["lv"] = 1.100000023841858, ["offset"] = 52, ["type"] = 16},
+{["lv"] = 2.369355800876173E-38, ["offset"] = 124, ["type"] = 16},
+{["lv"] = 1.401298464324817E-45, ["offset"] = 128, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 372, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 372, 16, 99999)
+end
+gg.toast("第二步开启成功")
+else
+gg.toast("第二步开启失败")
+end
+
+local memory = 4+1+32--过
+local array = {
+{["lv"] = 6.40981712152211E-10, ["type"] = 16},
+{["lv"] = 2.6353108655694013E23, ["offset"] = 4, ["type"] = 16},
+{["lv"] = 9.316427742678722E-39, ["offset"] = 8, ["type"] = 16},
+{["lv"] = 1.0, ["offset"] = 148, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 148, 16, 99999)
+end
+gg.toast("第三步开启成功")
+else
+gg.toast("第三步开启失败")
+end
+
+local memory = 4+1+32--过
+local array = {
+{["lv"] = 530.0, ["type"] = 64},
+{["lv"] = 0.8, ["offset"] = -32, ["type"] = 64},
+{["lv"] = 0.7, ["offset"] = -16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32, 64, 5)
+app.memorywrite(data[i] + -16, 64, 5)
+end
+gg.toast("拳头范围开启成功")
+else
+gg.toast("拳头范围开启失败")
+end
+end
+
+
+function x14()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC + gg.REGION_ANONYMOUS + gg.REGION_C_HEAP)
+gg.searchNumber("0.35;0.15;0.4;0.5;1.5;0.1::", gg.TPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+gg.toast("新范围拾取开启失败")
+else
+gg.searchNumber("0.4", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() > 100 then
+gg.toast("新范围拾取开启失败")
+else
+gg.getResults(100)
+gg.editAll("4", gg.TYPE_DOUBLE)
+gg.toast("新范围拾取开启成功")
+end
+end
+end
+
+
+function x15()
+gg.alert("本值0.1，改大楼上改负楼下不改正常楼下自行测试。")
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.18, ["type"] = 64},
+{["lv"] = 0.28, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 0.35, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 0.1, ["offset"] = 128, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改的值  越大速度越快"}, {[1] ="0.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 128, 64, a[1])
+end
+gg.toast("开启成功")
+else
+gg.toast("开启失败")
+end
+end
+
+function x16()
+local memory = 16
+local array = {
+{["lv"] = 16843009, ["type"] = 4},
+{["lv"] = 16843009, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 16777472, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 16777217, ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 16, 0)
+end
+gg.toast("新弹穿开启成功")
+else
+
+local memory = 16
+local array = {
+{["lv"] = 16843009, ["type"] = 4},
+{["lv"] = 16843009, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 16777472, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 16, 16777217)
+end
+gg.toast("新弹穿开启成功")
+else
+gg.toast("新弹穿开启失败")
+end
+end
+end
+
+
+function x17()
+gg.alert("重要警告 此功能已加服务器检测，大号禁止使用！！！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1.57, ["type"] = 64},
+{["lvm"] = 3.14, ["offset"] = -32, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -48, 64, 5.7)
+end
+gg.toast("跑A开启成功")
+else
+gg.toast("跑A开启失败")
+end
+end
+
+function x18()
+gg.alert("重要警告 此功能已加服务器检测，大号禁止使用！！！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1075576832 , ["type"] = 4},
+{["lv"] = 1075380224 , ["offset"] = 24, ["type"] = 4},
+{["lv"] = 11 ,  ["offset"] = 36, ["type"] = 4},
+{["lv"] = 1074528256 , ["offset"] = 48, ["type"] = 4},
+{["lv"] = 1075052544 , ["offset"] = 72, ["type"] = 4},
+{["lv"] = 1073322393 , ["offset"] = 96, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为9，超过9.5不行"}, {[1] ="9"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -4,  64, a[1])
+app.memorywrite(data[i] + 20, 64, a[1])
+app.memorywrite(data[i] + 44, 64, a[1])
+app.memorywrite(data[i] + 68, 64, a[1])
+app.memorywrite(data[i] + 92, 64, a[1])
+end
+gg.toast("root持枪加速开启成功")
+else
+gg.toast("root持枪加速开启失败")
+end
+end
+
+function x19()
+local memory = 16384
+local array = {
+{["lv"] = 1051772663, ["type"] = 4},
+{["lv"] = 1000.0, ["offset"] = 4, ["type"] = 64},
+{["lv"] = 1083129856, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 2054781047, ["offset"] = -12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 64, 200)
+end
+gg.toast("root秒落地开启成功")
+else
+
+local memory = 16384
+local array = {
+{["lv"] = 1051772663, ["type"] = 4},
+{["lv"] = 200.0, ["offset"] = 4, ["type"] = 64},
+{["lv"] = 1080623104, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 2054781047, ["offset"] = -12, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 64, 1000)
+end
+gg.toast("root秒落地关闭成功")
+else
+gg.toast("root秒落地关闭失败")
+end
+end
+end
+
+function x20()
+gg.alert("白嫖温馨提示::大锁甲不稳！！！")
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+ gg.searchNumber("1D;0F;0F;0F;0F;1F;0F;0.1::29", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("大范围锁甲开启失败")
+else
+ gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(300)
+gg.editAll("0.92", gg.TYPE_FLOAT)
+gg.toast("大范围锁甲开启成功")
+end
+end
+
+function x21()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+ gg.searchNumber("1D;0F;0F;0F;0F;1F;0F;0.1::29", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("中范围锁甲开启失败")
+else
+ gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(300)
+gg.editAll("0.552", gg.TYPE_FLOAT)
+gg.toast("中范围锁甲开启成功")
+end
+end
+
+function x22()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+ gg.searchNumber("1D;0F;0F;0F;0F;1F;0F;0.1::29", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("小范围锁甲开启失败")
+else
+ gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(300)
+gg.editAll("0.41", gg.TYPE_FLOAT)
+gg.toast("小范围锁甲开启成功")
+end
+end
+
+function x23()
+	if jzms then
+		gg.clearResults()
+		gg.setRanges(gg.REGION_CODE_APP)
+		gg.searchNumber("6000.0;6.97811062e-33:5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+		if gg.getResultCount() == 0 then
+			gg.toast("关近战秒杀失败")
+		else
+			gg.refineNumber("6000", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+			gg.getResults(10)
+			gg.editAll("1000", gg.TYPE_FLOAT)
+			gg.clearResults()
+			gg.toast("关闭进战秒杀")
+			jzms = false
+		end
+	else
+		gg.clearResults()
+		gg.setRanges(gg.REGION_CODE_APP)
+		gg.searchNumber("1000.0;6.97811062e-33:5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+		if gg.getResultCount() == 0 then
+			gg.toast("近战秒杀失败")
+		else
+			gg.refineNumber("1000", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+			gg.getResults(10)
+			gg.editAll("6000", gg.TYPE_FLOAT)
+			gg.clearResults()
+			gg.toast("近战秒杀")
+			jzms = true
+		end
+	end
+end
+
+function x24()
+	local memory = 4+1+32
+	local array = {
+		{["lv"] = 1.2, ["type"] = 64},
+		{["lv"] = 0.8 , ["offset"] = 32, ["type"] = 64},
+		{["lv"] = 0.7 , ["offset"] = 48, ["type"] = 64},
+		}
+	local isok, data = app.memorysearch(memory, array)
+	if isok then
+		for i = 1, #data do
+			app.memorywrite(data[i] + 32, 64, 5.0)
+			app.memorywrite(data[i] , 64, 5.0)
+		end
+		gg.toast("近战范围成功")
+	else
+		gg.toast("近战范围失败")
+	end
+	local memory = 4+1+32
+	local array = {
+		{["lv"] = 1.2, ["type"] = 64},
+		{["lv"] = 0.8 , ["offset"] = 16, ["type"] = 64},
+		{["lv"] = 0.7 , ["offset"] = 112, ["type"] = 64},
+		}
+	local isok, data = app.memorysearch(memory, array)
+	if isok then
+		for i = 1, #data do
+			app.memorywrite(data[i] + 16, 64, 5.0)
+			app.memorywrite(data[i] , 64, 5.0)
+		end
+		gg.toast("近战范围2成功")
+	else
+		gg.toast("近战范围2失败,现尝试最后方式。")
+		gg.clearResults()
+		gg.setRanges(gg.REGION_ANONYMOUS)
+		gg.searchNumber("1.2;0.8;0.7::", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
+		if gg.getResultCount() == 0 then
+			gg.toast("失败")
+		else
+			gg.searchNumber("1.2;0.8", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
+			gg.getResults(10)
+			gg.editAll("5", gg.TYPE_FLOAT)
+			gg.toast("成功,由于第一种搜索方式失败所以本功能暂时不支持关闭。")
+		end
+	end
+end
+
+function w1()
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.15000000596, ["type"] = 16},
+{["lv"] = 0   , ["offset"] = -4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1 , ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为2.98，越大锁头范围越大"}, {[1] ="2.98"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, a[1])
+end
+gg.toast("锁头开启成功")
+else
+gg.toast("锁头开启失败")
+end
+end
+
+
+
+function w2()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1046562734, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -8, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 4, ["type"] = 4},
+{["lv"] = 0   , ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1065353216  , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为0.98735，越大锁范围越大"}, {[1] ="0.985"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, a[1])
+end
+gg.toast("大锁甲开启成功")
+else
+gg.toast("大锁甲开启失败")
+end
+end
+
+function w3()
+gg.alert("此功能已加服务器检测，目前超过30，和连续跳很高，特别容易踢下线，大家注意！！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1082081280 , ["type"] = 4},
+{["lv"] = 1076101120  , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 初始为3 默认为40，越大跳的越高"}, {[1] ="40"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -20,  64,  a[1])
+end
+gg.toast("高跳A版本开启成功")
+else
+gg.toast("高跳A版本开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1082081280 , ["type"] = 4},
+{["lv"] = 1079574528  , ["offset"] = -48, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 初始为3 默认为40，越大跳的越高"}, {[1] ="40"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -20,  64,  a[1])
+end
+gg.toast("高跳B版本开启成功")
+else
+gg.toast("高跳B版本开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1057803469, ["type"] = 4},
+{["lv"] = 1045220557, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 100, ["offset"] = 80, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 900)
+end
+gg.toast("连续跳跃开启成功")
+else
+gg.toast("连续跳跃开启失败")
+end
+end
+
+function w4()
+gg.setRanges(4+1+32)
+gg.searchNumber("0.05;0.001;1.0;5.0:121", gg.TYPE_DOUBLE,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("1", gg.TYPE_DOUBLE,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(5)
+gg.editAll("7",gg.TYPE_DOUBLE)
+gg.toast("开启成功")
+end
+
+function w5()
+gg.alert("开完功能后，然后退出脚本。即可趴下转圈圈")
+local memory = 4+1+32
+local array = {
+{["lv"] = -1055077171, ["type"] = 4},
+{["lv"] = 1063675494, ["offset"] = -40, ["type"] = 4},
+{["lv"] = 1045220557, ["offset"] = -36, ["type"] = 4},
+{["lv"] = 1008981770, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1053609165, ["offset"] = -24, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1048576000, ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1036831949, ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1063675494, ["offset"] = -8, ["type"] = 4},
+{["lv"] = 1092616192, ["offset"] = 24, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = 32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改的值  越大速度越快"}, {[1] ="-100"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 56, 16, a[1],true)
+end
+gg.toast("转圈圈开启成功")
+else
+gg.toast("转圈圈开启失败")
+end
+end
+
+
+function w6()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1079574528, ["type"] = 4},
+{["lv"] = 1072693248 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1072693248 , ["offset"] = 32, ["type"] = 4},
+{["lv"] = -1074790400 , ["offset"] = 48, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 32, 4, 0)
+end
+gg.toast("聚点无后第一步开启成功")
+else
+gg.toast("聚点无后第一步开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1073217536, ["type"] = 4},
+{["lv"] = 1070176665 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1069128089 , ["offset"] = 64, ["type"] = 4},
+{["lv"] = 1071225241 , ["offset"] = 96, ["type"] = 4},
+{["lv"] = 1065646817 , ["offset"] = 112, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 64, 4, 1072693248)
+end
+gg.toast("聚点无后第二步开启成功")
+else
+gg.toast("聚点无后第二步开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1073217536, ["type"] = 4},
+{["lv"] = 1077149696 , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1079083008 , ["offset"] = 32, ["type"] = 4},
+
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 16, 4, 1080131584)
+end
+gg.toast("聚点无后第三步开启成功")
+else
+gg.toast("聚点无后第三步开启失败")
+end
+end
+
+
+function w7()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_DATA)
+ gg.searchNumber("-1;1,065,353,216D;1;5;4::100", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("汽车锁油开启失败")
+else
+ gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ~=1 then
+  gg.toast("锁油开启失败")
+else
+gg.getResults(1) 
+gg.editAll("0.1", gg.TYPE_FLOAT) 
+gg.toast("눈_눈")
+gg.clearResults()
+end
+end
+end
+
+
+function w8()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1073290936, ["type"] = 4},
+{["lv"] = 1073290936    , ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1073532108   , ["offset"] = 32, ["type"] = 4},
+{["lv"] = 1068079513   , ["offset"] = 80, ["type"] = 4},
+{["lv"] = 1069128089   , ["offset"] = 96, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 96,4, 1083127808)
+end
+gg.toast("子弹全穿   开启成功")
+else
+gg.toast("子弹全穿   开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1081262080, ["type"] = 4},
+{["lv"] = 1073217536    , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1069128089   , ["offset"] = -64, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -64,4, 1083127808)
+end
+gg.toast("子弹全穿   开启成功")
+else
+gg.toast("子弹全穿   开启失败")
+end
+end
+
+function w9()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1060439284, ["type"] = 4},
+{["lv"] = 1060439284, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 1059004885, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1045220557, ["offset"] = 28, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 28, 16, 99)
+end
+gg.toast("人物上房   开启成功")
+else
+gg.toast("人物上房   开启失败")
+end
+end
+
+
+function w10()
+if sxxz then
+		local memory = 4+1+32
+		local array = {
+		{["lv"] = 0.3, ["type"] = 64},
+		{["lv"] = -1000.0 , ["offset"] = 16, ["type"] = 64},
+		{["lv"] = 0.1 , ["offset"] = -16, ["type"] = 64},
+		}
+		local isok, data = app.memorysearch(memory, array)
+		if isok then
+			for i = 1, #data do
+				app.memorywrite(data[i] - 16, 64, 0.1)
+			end
+			gg.toast("水下行走关闭成功")
+			sxxz = false
+		else
+			gg.toast("水下行走关闭失败")
+		end
+	else
+		local memory = 4+1+32
+		local array = {
+		{["lv"] = 0.3, ["type"] = 64},
+		{["lv"] = 1.0 , ["offset"] = 16, ["type"] = 64},
+		{["lv"] = 0.1 , ["offset"] = -16, ["type"] = 64},
+		}
+		local isok, data = app.memorysearch(memory, array)
+		if isok then
+			for i = 1, #data do
+				app.memorywrite(data[i] - 16, 64, -1000.0)
+			end
+			gg.toast("水下行走成功")
+			sxxz = true
+		else
+			gg.toast("水下行走失败")
+		end
+	end
+end
+
+function w11()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_BSS)
+gg.searchNumber("0.00392158423F;0.5F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+gg.toast("「提示」人物穿墙开启失败")
+else
+gg.searchNumber("0.00392158423F;0.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(37)
+gg.editAll("30;60", gg.TYPE_FLOAT)
+gg.toast("「提示」人物穿墙开启成功")
+end
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-0.50291442871;1;3.941741e-38", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+gg.toast("「提示」汽车穿墙开启失败A")
+else
+gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(37)
+gg.editAll("0.00037", gg.TYPE_FLOAT)
+gg.toast("「提示」汽车穿墙开启成功")
+end
+gg.clearResults()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-0.50291442871;1;3.941741e-38", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+gg.toast("「提示」汽车穿墙开启失败B")
+else
+gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(37)
+gg.editAll("0.00037", gg.TYPE_FLOAT)
+gg.toast("「提示」汽车穿墙开启成功")
+end
+end
+
+
+
+
+function w12()
+gg.clearResults()
+gg.toast("如果没有无限手雷在多扔几个手雷重新开启")
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber("-4.9E-324E;0.1E;1.44999992847F", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+if gg.getResultCount() ==0 then
+  gg.toast("无限手雷第一步开启失败")
+else
+gg.searchNumber("1.44999992847", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+if gg.getResultCount() >50 then
+  gg.toast("无限手雷第一步开启失败")
+else
+gg.getResults(20)
+gg.editAll("199999",gg.TYPE_FLOAT)
+gg.toast("无限手雷开启成功")
+end
+end
+end
+
+
+function w13()
+ local memory = 16384
+local array = {
+{["lv"] = 22867042 , ["type"] = 4},
+{["lv"] = 167833121, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 168881680, ["offset"] = 20, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 初始为1000 默认为3500，越大跳的越高"}, {[1] ="3500"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 28,  16,  a[1])
+end
+gg.toast("子弹射速第一部开启成功")
+else
+gg.toast("子弹射速第一部开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 90308608, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 164608, ["offset"] = -12, ["type"] = 4},
+{["lv"] = 140967941, ["offset"] = -16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 20, 4, 1660946786)
+end
+gg.toast("第二步开启成功")
+else
+gg.toast("第二步开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1.5, ["type"] = 64},
+{["lv"] = 2.5e-323, ["offset"] = 12, ["type"] = 64},
+{["lv"] = 2.5, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 16, 64, 0.35)
+end
+gg.toast("开启成功")
+else
+gg.toast("开启失败")
+end
+end
+
+
+function w14()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber("-50,000.0;50000;-100000;100000::50", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("落地全除B版本开启失败")
+else
+gg.searchNumber("-100000", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() >100 then
+  gg.toast("落地全除B版本开启失败")
+else
+gg.getResults(100)
+gg.editAll("0.0153", gg.TYPE_FLOAT)
+gg.toast("落地全除B版本开启成功")
+end
+end
+end
+
+function w15()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1057803469, ["type"] = 4},
+{["lv"] = 1045220557, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 100, ["offset"] = 80, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 900)
+end
+gg.toast("连续跳跃开启成功")
+else
+gg.toast("连续跳跃开启失败")
+end
+end
+
+
+
+function w16()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1017370378, ["type"] = 4},
+{["lv"] = 1065353216   , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1073741824  , ["offset"] = 12, ["type"] = 4},
+{["lv"] = 5  , ["offset"] = -32, ["type"] = 4},
+{["lv"] = 25  , ["offset"] = -44, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 12, 16, 5.7)
+end
+gg.toast("拾取扩大开启成功")
+else
+gg.toast("拾取扩大开启失败")
+end
+end
+
+function w17()
+local memory = 4+1+32
+local array = {
+{["lv"] = -0.12, ["type"] = 64},
+{["lv"] = 0.924, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为2.5，超过9.5不行"}, {[1] ="2.5"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -16,  64,  a[1])
+end
+gg.toast("趴下路飞开启成功")
+else
+gg.toast("趴下路飞开启失败")
+end
+end
+
+function w18()
+local memory = 4+1+32
+local array = {
+{["lv"] = -343597384, ["type"] = 4},
+{["lv"] = -1078020015, ["offset"] = 4, ["type"] = 4},
+{["lv"] = -1717986918, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 32, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 48, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 64, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为2.5，超过9.5不行"}, {[1] ="2.5"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -16,  64,  a[1])
+end
+gg.toast("站立路飞开启成功")
+else
+gg.toast("站立路飞开启失败")
+end
+end
+
+function w19()
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.84, ["type"] = 64},
+{["lv"] = 0.8, ["offset"] = -128, ["type"] = 64},
+{["lv"] = 0.05, ["offset"] = -112, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -128, 64, 2)
+end
+gg.toast("搜索中.....")
+else
+gg.toast("搜索失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = -18.65, ["type"] = 64},
+{["lv"] = 0.05, ["offset"] = -96, ["type"] = 64},
+{["lv"] = 0.84, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为2，超过2不行"}, {[1] ="2"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -112,  64,  a[1])
+end
+gg.toast("远跳开启成功")
+else
+gg.toast("远跳开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.25, ["type"] = 64},
+{["lv"] = 0.05, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 22.5, ["offset"] = 128, ["type"] = 64},
+{["lv"] = 0.8, ["offset"] = 208, ["type"] = 64},
+{["lv"] = 0.05, ["offset"] = 224, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 默认为2，超过2不行"}, {[1] ="2"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 208,  64,  a[1])
+end
+gg.toast("远跳开启成功")
+else
+gg.toast("远跳开启失败")
+end
+end
+
+function t1()
+
+end
+
+function t2()
+
+end 
+
+
+function t3()
+
+end
+
+function t4()
+local memory = 4+1
+local array = {
+{["lv"] = 1070805811, ["type"] = 4},
+{["lv"] = 858993459, ["offset"] = -4, ["type"] = 4},
+{["lv"] = 1074266112, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1075314688, ["offset"] = 32, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 44, ["type"] = 4},
+{["lv"] = 1072693248, ["offset"] = 48, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 44, 64, 35)
+end
+gg.toast("脚步雷达成功")
+else
+
+local memory = 4+1
+local array = {
+{["lv"] = 1070805811, ["type"] = 4},
+{["lv"] = 858993459, ["offset"] = -4, ["type"] = 4},
+{["lv"] = 1074266112, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1075314688, ["offset"] = 32, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 44, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 44, 64, 1)
+end
+gg.toast("脚本雷达关闭")
+else
+gg.toast("脚步雷达失败")
+end
+end
+end
+
+
+
+function t5()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1099511628, ["type"] = 4},
+{["lv"] = 0, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1075576832, ["offset"] = 36, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 20, 4, 1072693248)
+end
+gg.toast("秒药恢复开启成功")
+else
+gg.toast("秒药恢复开启失败")
+end
+end
+
+function t6()
+
+end
+
+function t7()
+
+end
+
+
+function t8()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber("-50,000.0;50000;0.0153;100000::50", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() ==0 then
+  gg.toast("落地全除B版本开启失败")
+else
+gg.searchNumber("0.0153", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() >100 then
+  gg.toast("落地全除B版本开启失败")
+else
+gg.getResults(100)
+gg.editAll("-100000", gg.TYPE_FLOAT)
+gg.toast("落地全除B版本开启成功")
+end
+end
+end
+
+function t9()
+gg.clearResults()
+  gg.alert('开启此功能勿开秒换弹夹 不然卡弹夹')
+  gg.setRanges(gg.REGION_CODE_APP)
+  gg.searchNumber('-1,090,500,752D;-0.50109004974F;5000', gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.searchNumber('5000', gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.getResults(100)
+  gg.editAll('1000', gg.TYPE_FLOAT)
+  gg.toast('开启成功')
+end 
+
+
+function t10()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC+gg.REGION_ANONYMOUS+gg.REGION_C_HEAP)
+gg.searchNumber("199999", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+if gg.getResultCount() ==0 then
+  gg.toast("无限手雷恢复开启失败")
+else
+gg.searchNumber("199999", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0,-1)
+gg.getResults(20)
+gg.editAll("1.44999992847",gg.TYPE_FLOAT)
+gg.toast("无限手雷恢复开启成功")
+end
+end
+
+function t11()
+
+end
+
+function t12()
+gg.alert("警告 此功能已加服务器检测，特别容易踢下线，大家注意！！！")
+while true do
+gg.sleep(2500)
+local memory = 4+1+32
+local array = {
+{["lv"] = 1008981770, ["type"] = 4},
+{["lv"] = 6 , ["offset"] = -8, ["type"] = 4},
+{["lv"] = 1017370378, ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 0.00983)
+end
+gg.toast("地皮开启成功")
+else
+gg.toast("地皮开启失败")
+end
+end
+end
+
+
+function t13()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1059004885, ["type"] = 4},
+{["lv"] = 2, ["offset"] = -36, ["type"] = 4},
+{["lv"] = 1, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1060439284, ["offset"] = -20, ["type"] = 4},
+{["lv"] = 1060439284, ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1008981770, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 1045220557, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 65536, ["offset"] = 28, ["type"] = 4},
+{["lv"] = 1, ["offset"] = 272, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 经典禁止使用此功能 越大遁地越深 游戏本值为1"}, {[1] ="1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -8, 16, a[1])
+end
+gg.toast("遁地开启成功")
+else
+gg.toast("遁地开启失败")
+end
+end
+
+function y1()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("4939D;2;0.99900001287::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("1.7G透视上色开启失败")
+else
+ gg.searchNumber("2;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16;120", gg.TYPE_FLOAT)
+gg.toast("1.7G版通用透视上色开启成功")
+end
+end
+
+function y2()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("4939D;2;0.99900001287::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("透视开启失败")
+else
+ gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("1.7G版通用透视开启成功")
+end
+end
+    
+function y3()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("24,581.5;2;3.87506556511;3.87506604195::", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1) 
+ if gg.getResultCount() ==0 then
+  gg.toast("透视第一步开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("16",gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视上色第一步开启成功")
+end
+end
+function y4()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("1,081,606,144D;1,669,365,763D;541,344,256D;2;0.99900001287::200", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("透视第二步开启失败")
+else
+ gg.searchNumber("2;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(200)
+gg.editAll("16;120", gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视上色第二步开启成功")
+end
+end
+function y5()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("11,266.75;1.1011428e-19;24,581.5;2;3.87506699562;3.7500038147::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("透视第三步开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视上色第三步开启成功")
+end
+end
+
+function y6()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("24,581.5;2;3.87506556511;3.87506604195::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("透视第一步开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视第一步开启成功")
+end
+end
+function y7()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("1,081,606,144D;1,669,365,763D;541,344,256D;2;0.99900001287::200", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("透视第二步开启失败")
+else
+ gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(200)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视第二步开启成功")
+end
+end
+function y8()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("11,266.75;1.1011428e-19;24,581.5;2;3.87506699562;3.7500038147::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("透视第三步开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("1.7G版本845透视第三步开启成功")
+end
+end
+
+
+function y9()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("4.75926898e21;2;5.01751551e21::50", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("865透视上色第一步  开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(177)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("865透视上色第一步  开启成功")
+end
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("70475D;873D;50,331,648D;2;0.0001;0.99900001287:200", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("865透视上色第二步 开启失败")
+else
+ gg.searchNumber("2.0;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(177)
+gg.editAll("16;120", gg.TYPE_FLOAT)
+gg.toast("865透视上色第二步 开启成功")
+end
+end
+    
+function y10()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("4.75926898e21;2;5.01751551e21::50", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("865透视第一步  开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(177)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("865透视第一步  开启成功")
+end
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("1.66236833e-19;3.76158192e-37;2;1.00000001e-7::200", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("865透视第二步 开启失败")
+else
+ gg.searchNumber("2.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(177)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("865透视第二步 开启成功")
+end
+end
+
+function y11()
+gg.clearResults()
+ gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("4939D;2;0.99900001287::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+if gg.getResultCount() == 0 then
+ gg.toast("透视第一步开启失败")
+else
+ gg.searchNumber("2;0.99900001287", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("透视第一步开启成功")
+end
+end
+    
+function y12()
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+ gg.searchNumber("103,256D;2.0F::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+ if gg.getResultCount() == 0 then
+ gg.toast("透视第二步开启失败")
+else
+ gg.searchNumber("2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("16", gg.TYPE_FLOAT)
+gg.toast("透视第二步开启成功")
+end
+end
+
+function y13()
+
+while true do
+
+local memory = 4
+local array = {
+{["lv"] = 1063489081, ["type"] = 4},
+{["lv"] = 1092616192 , ["offset"] = -4, ["type"] = 4},
+{["lv"] = 1053609165, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1036831949 , ["offset"] = 0x18, ["type"] = 4},
+{["lv"] = 1048576000, ["offset"] = 0x1C, ["type"] = 4},
+{["lv"] = 1063675494 , ["offset"] = 0x20, ["type"] = 4},
+{["lv"] = 1069547520, ["offset"] = -0x70, ["type"] = 4},
+{["lv"] = 1065353216 , ["offset"] = -0x7C, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -4, 16, 10, false)
+app.memorywrite(data[i] + -0xA8, 16, 10, false)
+end
+gg.clearResults()
+gg.loadResults(gg.getListItems())
+gg.searchNumber("10", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+z = gg.getResultCount()
+gg.clearResults()
+gg.loadResults(gg.getListItems())
+gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+x = gg.getResultCount()
+b=z-x
+file = io.open("/sdcard/人数.txt", "w")
+file:write(b)
+file:close()
+--gg.addView("附近有"..b.."人","red",0,-9999,2000)
+gg.toast("附近有"..b.."人")
+gg.clearList()
+else
+gg.toast("开启失败")
+end
+
+if gg.isVisible(true) then --判断是否点开修改器
+break end --如果点开，则停止循环
+end
+	 
+end
+
+
+function q1()
+gg.alert("提示::请先设置修改器的冻结间隔为0，然后在靶场开启，然后隐藏2 3，运行守护3")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1032670829, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3312, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3296, ["type"] = 4},
+{["lv"] = 1128792064, ["offset"] = -184, ["type"] = 4},
+{["lv"] = 1109393408, ["offset"] = -180, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -68, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -28, ["type"] = 4},
+{["lv"] = 1117782016, ["offset"] = -8, ["type"] = 4},
+{["lv"] = 1049124804, ["offset"] = 8, ["type"] = 4},
+{["lv"] = 1054755172, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 1061335483, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1047904908, ["offset"] = 20, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -3312, 4, 1073741824,true)
+app.memorywrite(data[i] + -3296, 4, 1073741824,true)
+end
+gg.toast("麒麟出生岛透视开启成功")
+else
+gg.toast("麒麟出生岛透视开启失败")
+end
+end
+
+
+
+function q2()
+gg.alert("提示::请先设置修改器的冻结间隔为0，然后在靶场开启，然后隐藏2 3，运行守护3")
+local memory = 4+1+32
+local array = {
+{["lv"] = 998445679, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3308, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3292, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -24, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -64, ["type"] = 4},
+{["lv"] = 1106247680, ["offset"] = -4, ["type"] = 4},
+{["lv"] = 1014513168, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 1063675494, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1048576000, ["offset"] = 24, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -3308, 4, 1073741824,true)
+app.memorywrite(data[i] + -3292, 4, 1073741824,true)
+end
+gg.toast("麒麟靶场透视开启成功")
+else
+gg.toast("麒麟靶场透视开启失败")
+end
+end
+
+
+
+function q3()
+local memory = 4+1+32
+local array = {
+{["lv"] = -1.0890662e-22, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -220, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -216, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -212, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -208, ["type"] = 16},
+{["lv"] = 0.85243749619, ["offset"] = -204, ["type"] = 16},
+{["lv"] = 1.39999997616, ["offset"] = -200, ["type"] = 16},
+{["lv"] = 1.17999994755, ["offset"] = -176, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -200, 16, 999)
+end
+gg.toast("新图上色开启成功")
+else
+gg.toast("新图上色开启失败")
+end
+end
+
+
+
+function q4()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1079246848, ["type"] = 4},
+{["lv"] = 1074266112  , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1071225241    , ["offset"] = -32, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32,4, 1176255488)
+end
+gg.toast("自瞄第一部    开启成功")
+else
+gg.toast("自瞄第一部    开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1079246848, ["type"] = 4},
+{["lv"] = 858993459  , ["offset"] = 12, ["type"] = 4},
+{["lv"] = 1070805811    , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 16,4, 1176255488)
+end
+gg.toast(" 自瞄第二部   开启成功")
+else
+gg.toast(" 自瞄第二部    开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1074895257, ["type"] = 4},
+{["lv"] = 1071015526  , ["offset"] = -16, ["type"] = 4},
+{["lv"] = 1073217536    , ["offset"] = 16, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -16,4, 1176255488)
+app.memorywrite(data[i] + -48,4, 1148829696)
+end
+gg.toast(" 自瞄第三部    开启成功")
+else
+gg.toast(" 自瞄第三部    开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 858993459, ["type"] = 4},
+{["lv"] = 1073741824    , ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1070176665  , ["offset"] = -76, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"输入要修改为的值  默认修改为900，180度范围自瞄，越大自瞄越大"}, {[1] ="900"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -32,64, 900)
+end
+gg.toast("自瞄范围    开启成功")
+else
+gg.toast("自瞄范围   开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 858993459, ["type"] = 4},
+{["lv"] = 1073741824    , ["offset"] = -12, ["type"] = 4},
+{["lv"] = 1070176665  , ["offset"] = -76, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -44,4, 1148829696)
+app.memorywrite(data[i] + -60,4, -998653952)
+app.memorywrite(data[i] + -80,64, 0)
+end
+gg.toast("自瞄全部    开启成功")
+else
+gg.toast("自瞄加载    开启失败")
+end
+end
+
+
+function q5()
+local memory = 16384
+local array = {
+{["lv"] = 1123942400, ["type"] = 4},
+{["lv"] = 990057071, ["offset"] = -0x1C91C, ["type"] = 4},
+{["lv"] = 1063675494, ["offset"] = -0x1C930, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 0, 16, 0)
+app.memorywrite(data[i] + -0x1C91C, 16, 0)
+app.memorywrite(data[i] + -0x1C930, 16, 999)
+end
+gg.toast("除草除雾天黑开启成功")
+else
+gg.toast("除草除雾天黑开启失败")
+end
+end
+
+function q6()
+local memory = 4+1+32
+local array = {
+{["lv"] = 20.21899986267, ["type"] = 16},
+{["lv"] = 0.75, ["offset"] = -60, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -56, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -52, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -48, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -44, ["type"] = 16},
+{["lv"] = 1.20000004768, ["offset"] = -16, ["type"] = 16},
+{["lv"] = 20, ["offset"] = 24, ["type"] = 16},
+{["lv"] = 23.20000076294, ["offset"] = 44, ["type"] = 16},
+{["lv"] = 6500, ["offset"] = 60, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -60, 16, 1.2611686e-44)
+end
+gg.toast("老图变暗开启成功")
+else
+gg.toast("老图变暗开启失败")
+end
+end
+
+
+function q7()
+local memory = 4+1+32
+local array = {
+{["lv"] = -1.0890662e-22, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -220, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -216, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -212, ["type"] = 16},
+{["lv"] = 1, ["offset"] = -208, ["type"] = 16},
+{["lv"] = 0.85243749619, ["offset"] = -204, ["type"] = 16},
+{["lv"] = 8, ["offset"] = 4, ["type"] = 16},
+{["lv"] = 7.5, ["offset"] = 24, ["type"] = 16},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + 4, 16, -2)
+app.memorywrite(data[i] + 24, 16, -2)
+end
+gg.toast("新图变暗开启成功")
+else
+gg.toast("新图变暗开启失败")
+end
+end
+
+function q8()
+menu = gg.choice({
+"客户端4399",
+"网易客户端",
+"tt客户端",
+"vivo客户端",
+"九游客户端",
+"一号客户端",
+"华为客户端",
+"魅族客户端",
+"一加 opp客户端",
+"国际服客户端",
+"小米客户端",
+"7272客户端",
+"bangzhidao客户端和国际服日服客户端",
+"退出脚本"},
+nil,'晓白，无名，酷奇温馨提示:: 点击下对应的客户端，然后重启游戏里了，修复就可以了')
+if menu == 1 then A1() end
+if menu == 2 then A2() end
+if menu == 3 then A3() end
+if menu == 4 then A4() end
+if menu == 5 then A5() end
+if menu == 6 then A6() end
+if menu == 7 then A7() end
+if menu == 8 then A8() end
+if menu == 9 then A9() end
+if menu == 10 then A10() end
+if menu == 11 then A11() end
+if menu == 12 then A12() end
+if menu == 13 then A13() end
+if menu == 14 then HOME() end
+XGCK=-1
+end
+
+function A1()
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.m4399/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A2()
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A3()
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.tzsy/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A4() 
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.vivo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A5() 
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.aligames/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A6()
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A7() 
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.huawei/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A8() 
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mz/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A9()
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.nearme.gamecenter/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A10() 
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.ko/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A11()
+ os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.mi/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A12()
+ os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.qihoo/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function A13()
+ os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.hyxd.ewan.bazhang/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") 
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/UIScript/single_textures.json")
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/UIScript/4040BDD0BA0f042.dat")
+os.remove("/storage/emulated/0/Android/data/com.netease.kp/files/LocalData/Patch/UIScript/4051BDD0000f042.dat") end
+
+function q9()
+local memory = 16384
+local array = {
+{["lv"] = 5460076, ["type"] = 4},
+{["lv"] = 16, ["offset"] = -0x98, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -0x98, 4, -32)
+end
+gg.toast("麒麟上色开启成功")
+else
+gg.toast("麒麟上色开启失败")
+end
+end
+
+
+function q10()
+gg.alert("警告 超过30，特别容易踢下线，大家注意！！！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.05, ["type"] = 64},
+{["lv"] = 0.001, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 5.0, ["offset"] = 80, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"轿车请输入要修改为的值 初始为1  修改为10.1  越大速度越快"}, {[1] ="10.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 64, 64, a[1])
+end
+gg.toast("轿车加速开启成功")
+else
+gg.toast("轿车加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = -1.09, ["type"] = 64},
+{["lv"] = 0.4, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 0.5, ["offset"] = 32, ["type"] = 64},
+{["lv"] = 0.8, ["offset"] = 48, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"吉普请输入要修改为的值 初始为1.5  修改为10.1  越大速度越快"}, {[1] ="10.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 64, 64, a[1])
+end
+gg.toast("吉普加速开启成功")
+else
+gg.toast("吉普加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 101.0, ["type"] = 64},
+{["lv"] = 0.25, ["offset"] = -32, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"五菱宏光请输入要修改为的值 初始为2 修改为10.1  越大速度越快"}, {[1] ="10.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -16, 64, a[1])
+end
+gg.toast("五菱加速开启成功")
+else
+gg.toast("五菱加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 27.78, ["type"] = 64},
+{["lv"] = 120.0, ["offset"] = -32, ["type"] = 64},
+{["lv"] = 2.47, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"大巴请输入要修改为的值 初始为4 修改为10.1  越大速度越快"}, {[1] ="10.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -48, 64, a[1])
+end
+gg.toast("大巴加速开启成功")
+else
+gg.toast("大巴加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = -2.2, ["type"] = 64},
+{["lv"] = 2.2, ["offset"] = 16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"大巴请输入要修改为的值 初始为4 修改为10.1  越大速度越快"}, {[1] ="10.1"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + 32, 64, a[1])
+end
+gg.toast("大巴加速开启成功")
+else
+gg.toast("大巴加速开启失败")
+end
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 3.14, ["type"] = 64},
+{["lv"] = 3.6, ["offset"] = -16, ["type"] = 64},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -44, 16, 10)
+end
+gg.toast("防拉回开启成功")
+else
+gg.toast("放拉回开启失败")
+end
+end
+
+
+function q11()
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.12, ["type"] = 64},
+{["lv"] = 0.1, ["offset"] = -32, ["type"] = 64},
+{["lv"] = 1.5, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 300.0, ["offset"] = 32, ["type"] = 64}}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32, 64, 999)
+end
+gg.toast("子弹穿墙开启成功")
+else
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 0.12, ["type"] = 64},
+{["lv"] = 999.0, ["offset"] = -32, ["type"] = 64},
+{["lv"] = 1.5, ["offset"] = 16, ["type"] = 64},
+{["lv"] = 300.0, ["offset"] = 32, ["type"] = 64}}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32, 64, 0.1)
+end
+gg.toast("子弹全穿关闭")
+else
+gg.toast("子弹穿墙失败")
+end
+end
+end
+
+function q12()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1084227579, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -236, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -232, ["type"] = 4},
+{["lv"] = 1109393408, ["offset"] = 100, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -236, 16, 999)
+app.memorywrite(data[i] + -232, 16, 999)
+end
+gg.toast("老图黄色开启成功")
+else
+gg.toast("老图黄色开启失败")
+end
+end
+
+function q13()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1059621697, ["type"] = 4},
+{["lv"] = 1039803365, ["offset"] = -260, ["type"] = 4},
+{["lv"] = 1046530939, ["offset"] = -256, ["type"] = 4},
+{["lv"] = 1053153813, ["offset"] = -252, ["type"] = 4},
+{["lv"] = 1069547520, ["offset"] = -248, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = 8, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -260, 16, 999)
+end
+gg.toast("噩梦红色开启成功")
+else
+gg.toast("噩梦红色开启失败")
+end
+end
+
+function q14()
+local memory = 4+1+32
+local array = {
+{["lv"] = 1032805417, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3308, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -3292, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -24, ["type"] = 4},
+{["lv"] = 1013583521, ["offset"] = 4, ["type"] = 4},
+{["lv"] = 1059976831, ["offset"] = 12, ["type"] = 4},
+{["lv"] = 1061592137, ["offset"] = 16, ["type"] = 4},
+{["lv"] = 1062784175, ["offset"] = 20, ["type"] = 4},
+{["lv"] = 1048911546, ["offset"] = 24, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -3308, 4, 1073741824,true)
+app.memorywrite(data[i] + -3292, 4, 1073741824,true)
+end
+gg.toast("麒麟雪天透视开启成功")
+else
+gg.toast("麒麟雪天透视开启失败")
+end
+end
+
+function q15()
+gg.alert("雪天自定义黑白色，改999白色,99999黑色,0.5恢复，几个9合适自测推荐999")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1170939904, ["type"] = 4},
+{["lv"] = 1101004800, ["offset"] = -36, ["type"] = 4},
+{["lv"] = 1098907648, ["offset"] = 104, ["type"] = 4},
+{["lv"] = 1127481344, ["offset"] = 108, ["type"] = 4},
+{["lv"] = 1082130432, ["offset"] = 124, ["type"] = 4},
+{["lv"] = 1170939904, ["offset"] = 128, ["type"] = 4},
+{["lv"] = 1092616192, ["offset"] = 200, ["type"] = 4},
+{["lv"] = 1118830592, ["offset"] = 220, ["type"] = 4},
+{["lv"] = 1119354880, ["offset"] = 224, ["type"] = 4},
+{["lv"] = 1120403456, ["offset"] = 276, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 初始为0.5默认为999，越大颜色越深"}, {[1] ="999"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -100,  16,  a[1])
+end
+gg.toast("麒麟雪天上色开启成功")
+else
+gg.toast("麒麟雪天上色开启失败")
+end
+end
+
+function q16()
+gg.alert("注:除雪后雪天透视会无效，除雪重复开一次恢复！")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1170939904, ["type"] = 4},
+{["lv"] = 1101004800, ["offset"] = -36, ["type"] = 4},
+{["lv"] = 1056964608, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1098907648, ["offset"] = 104, ["type"] = 4},
+{["lv"] = 1127481344, ["offset"] = 108, ["type"] = 4},
+{["lv"] = 1082130432, ["offset"] = 124, ["type"] = 4},
+{["lv"] = 1170939904, ["offset"] = 128, ["type"] = 4},
+{["lv"] = 1092616192, ["offset"] = 200, ["type"] = 4},
+{["lv"] = 1118830592, ["offset"] = 220, ["type"] = 4},
+{["lv"] = 1119354880, ["offset"] = 224, ["type"] = 4},
+{["lv"] = 1120403456, ["offset"] = 276, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32, 16, -1.12)
+end
+gg.toast("麒麟雪天除雪开启成功")
+else
+
+local memory = 4+1+32
+local array = {
+{["lv"] = 1170939904, ["type"] = 4},
+{["lv"] = 1101004800, ["offset"] = -36, ["type"] = 4},
+{["lv"] = -1081123799, ["offset"] = -32, ["type"] = 4},
+{["lv"] = 1098907648, ["offset"] = 104, ["type"] = 4},
+{["lv"] = 1127481344, ["offset"] = 108, ["type"] = 4},
+{["lv"] = 1082130432, ["offset"] = 124, ["type"] = 4},
+{["lv"] = 1170939904, ["offset"] = 128, ["type"] = 4},
+{["lv"] = 1092616192, ["offset"] = 200, ["type"] = 4},
+{["lv"] = 1118830592, ["offset"] = 220, ["type"] = 4},
+{["lv"] = 1119354880, ["offset"] = 224, ["type"] = 4},
+{["lv"] = 1120403456, ["offset"] = 276, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+for i = 1, #data do
+app.memorywrite(data[i] + -32, 16, 0.5)
+end
+gg.toast("麒麟雪天除雪恢复成功")
+else
+gg.toast("麒麟雪天除雪恢复失败")
+end
+end
+end
+
+function q17()
+gg.alert("雪天自定义黑白色，改999白色,99999黑色,0.5恢复，几个9合适自测推荐999")
+local memory = 4+1+32
+local array = {
+{["lv"] = 1084227579, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -236, ["type"] = 4},
+{["lv"] = 1065353216, ["offset"] = -232, ["type"] = 4},
+{["lv"] = 1109393408, ["offset"] = 100, ["type"] = 4},
+}
+local isok, data = app.memorysearch(memory, array)
+if isok then
+a = gg.prompt({"请输入要修改为的值 初始为0.5默认为999，越大颜色越深"}, {[1] ="999"}, {[1] = "text"})
+for i = 1, #data do
+app.memorywrite(data[i] + -224, 16, a[1])
+end
+gg.toast("老图上色开启成功")
+else
+gg.toast("老图上色开启失败")
+end
+end
+
+function q18()
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+  pcall(load(zbc))
+      gg.alert("正在载入服务器脚本请稍等.....")
+
+    os.exit()
+  end
+end
+ZY="http://www.iyuji.cn/iyuji/s/UHhabVdUcTNyYTJubzRhak01alVIQT09/1609361028685141"
+local ZY = gg.makeRequest(ZY).content
+local ZY2 = ZY:match('【链接】(.-)【链接】')
+local ZY3 = ZY:match('【状态】(.-)【状态】')
+local ZY4 = ZY:match('【公告】(.-)【公告】')
+local ZY6 = ZY:match('【关闭公告】(.-)【关闭公告】')
+if ZY3=="开"then
+gg.alert(ZY4)
+ end
+if ZY3=="关"then
+os.exit()
+end
+card_file="/sdcard/密码.txt"
+if io.open(card_file)==nil then
+  card=nil
+ else
+  card=io.open(card_file):read("*a")
+end
+mima="956"
+info = gg.prompt({
+      "请输入密码 ",
+    }, {
+      [1] = card,
+      }, {
+      [1] = "number",
+    })
+   tt=info[1]
+    function exit()
+    os.exit() 
+    exit()
+    end
+if info[1]~=mima then local titText={}
+	table.insert(titText,"使用密码请联系作者\n")
+	table.insert(titText,"作者qq：2448760582 \n")
+	table.insert(titText,"已自动复制到剪贴板")
+	gg.copyText("2448760582")
+	gg.alert(table.concat(titText))
+	haveClick=false exit() end
+      file = io.open("/sdcard/密码.txt", "w")
+file:write(tt)
+file:close()
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+
+pcall(load(zbc))
+    gg.alert("正在载入服务器脚本请稍等.....")
+    os.exit()
+  end
+end
+pcall(load(gg.makeRequest("http://s9092957.fg.wghjo.cn/functions.lua").content))
+ffvpn = "https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F"
+x = tostring(gg.makeRequest(ffvpn))
+if not x or not x:sub(1, 20) then
+  gg.alert("正在载入脚本请稍等....", "")
+else
+  while #x < 100 or x:find("SSL") or x:find("I/O") or x:find("javax") do
+ pcall(load(zbc))
+     gg.alert("正在载入服务器脚本请稍等.....")
+
+    os.exit()
+  end
+end
+end 
+
+function Exit()
+--print("如果出现问题请联系QQ:2448760582  请反馈问题所在  谢谢")
+os.exit()
+end
+
+cs ="晓白，无名，酷奇"
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+ --[[aa=os.time()
+time=POST(sjpath,"UserName=" ..info[1])
+aa2=os.time()
+if aa2-aa>10 then gg.alert("请更换好的网络！") os.exit() end
+if string.len(time)~=19 then if time=="-15" then print("") else print("破解狗？") os.exit() end else print("") end
+]]gg.clearResults()
+  if XGCK == 1 then
+    yiyz_Main()
+  end
+end
+
+
+  
+      
