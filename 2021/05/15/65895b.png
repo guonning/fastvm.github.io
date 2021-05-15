@@ -1,0 +1,147 @@
+function Main0()
+SN = gg.choice({
+	 "功能",
+}, nil, "")
+if SN==1 then
+	 Main3()
+end
+FX1=0
+end
+
+function Main3()
+SN = gg.multiChoice({
+	 "人物不死、无限复活，满血开",
+	 "步枪无限子弹",
+	 "狙击枪无限子弹",
+	 "人物飞天",
+	 "人物飞天关闭",
+	 "人物遁地",
+	 "人物遁地关闭",
+}, nil, "🤬🤬🤬")
+if SN[1]==true then
+	 HS4()
+end
+if SN[2]==true then
+	 HS5()
+end
+if SN[3]==true then
+	 HS13()
+end
+if SN[4]==true then
+	 HS7()
+end
+if SN[5]==true then
+	 HS8()
+end
+if SN[6]==true then
+	 HS9()
+end
+if SN[7]==true then
+	 HS10()
+end
+FX1=0
+end
+
+function HS4()
+	 gg.clearResults()
+	 gg.setRanges(32)
+	 gg.searchNumber("100;20F:69", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("100", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 jg=gg.getResults(100)
+	 sl=gg.getResultCount()
+	 if sl>100 then sl=100 end
+	 for i = 1, sl do
+	 	 dzy=jg[i].address
+	 	 gg.addListItems({[1] = {address = dzy,flags = gg.TYPE_DWORD,freeze = true,value = 99}})
+	 end
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS5()
+	 gg.clearResults()
+	 gg.setRanges(32)
+	 gg.searchNumber("400;18;60;10:45", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("60", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 jg=gg.getResults(100)
+	 sl=gg.getResultCount()
+	 if sl>100 then sl=100 end
+	 for i = 1, sl do
+	 	 dzy=jg[i].address
+	 	 gg.addListItems({[1] = {address = dzy,flags = gg.TYPE_DWORD,freeze = true,value = 60}})
+	 end
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS13()
+	 gg.clearResults()
+	 gg.setRanges(32)
+	 gg.searchNumber("50;18;60;10:41", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("10", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+	 jg=gg.getResults(100)
+	 sl=gg.getResultCount()
+	 if sl>100 then sl=100 end
+	 for i = 1, sl do
+	 	 dzy=jg[i].address
+	 	 gg.addListItems({[1] = {address = dzy,flags = gg.TYPE_DWORD,freeze = true,value = 10}})
+	 end
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS7()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("0.4999999702;0.10000000149;0.30000001192:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("0.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("20", gg.TYPE_FLOAT)
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS8()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("0.4999999702;20;0.30000001192:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("20", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0.1", gg.TYPE_FLOAT)
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS9()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("60.0;1.70000004768:21", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1.7", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("6", gg.TYPE_FLOAT)
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+function HS10()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("60.0;6:21", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("6", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("1.7", gg.TYPE_FLOAT)
+	 gg.toast("")
+	 gg.clearResults()
+end
+
+
+
+while true do
+if gg.isVisible(true) then
+    FX1 = nil
+    gg.setVisible(false)
+  end
+  if FX1 == nil then
+    Main0()
+  end
+end
