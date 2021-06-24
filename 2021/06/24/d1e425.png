@@ -1,0 +1,74 @@
+mima = "B1460"
+v_value = gg.prompt({
+  "S24上帝内透"
+}, {
+  [1] = 0
+}, {
+  [1] = "密码"
+})
+function mi()
+  print("密码正确")
+end
+function end_c()
+  print("密码错误")
+  os.exit()
+end
+if v_value[1] == mima then
+  mi()
+else
+end_c()
+end
+function PS() end
+function setvalue(address,flags,value) PS('修改地址数值(地址,数值类型,要修改的值)') local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+
+function Main()
+  SN = gg.multiChoice({
+  "开启内透",
+  "开启上帝",
+  "终止"
+ }, nil, "S24官方Q群741481767")
+  if SN == nil then
+  else
+  if SN[1] == true then
+   a()
+  end
+  if SN[2] == true then
+   b()
+  end
+  if SN[3] == true then
+   Exit()
+  end
+end
+  XGCK = -1
+end
+
+function a()
+so=gg.getRangesList('libGameCore.so')[1].start
+py=0x188306C
+setvalue(so+py,4,-476028927)
+gg.toast("内透开启成功")
+end
+
+function b()
+so=gg.getRangesList('libunity.so')[1].start
+py=0x324090
+setvalue(so+py,16,270)
+gg.toast("上帝视角开启成功")
+end
+
+function Exit()
+print("")
+os.exit()
+end
+cs = "1.1"
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XGCK == 1 then
+    Main()
+  end
+end
