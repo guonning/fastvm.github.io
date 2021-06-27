@@ -1,0 +1,242 @@
+--交流群833591003
+local pxxe=gg[ "makeRequest" ]( "FT+网络申请" )
+while tostring(pxxe):find( "FT+" )==nil do
+while true do  print( "NO Network " ) end end
+function _A(_B) 
+return string.char(table.unpack(_B))
+end
+local optfff=function()
+local igs = 0
+for i in pairs(_G) do
+igs = igs + 1
+end
+if igs ~= 36 then
+goto BAD
+end
+ipai = gg[ "isPackageInstalled" ]
+gpa = gg[ "PACKAGE" ]
+ggf = gg[ "getFile" ]()
+gg[ "setVisible" ](false)
+goto P1
+::BAD::
+xpc=nil if  gg.isVisible() then xpc=0 end
+while xpc~=0 do break end
+wgcz =  "by.歪歪" 
+gg[ "toast" ](wgcz)
+gg[ "sleep" ](50)
+gg[ "setVisible" ](true)  
+::PP::
+gg[ "toast" ](wgcz)
+goto PP
+::P1::
+if #{pairs({ "EA-FFF" })} ~= 2 then
+goto BAD
+end
+xi = {1, 1}
+for i, v in pairs(gg) do 
+xi[1] = xi[1] + 1
+if i:find( "DIR" ) and not v:find(gpa) then
+goto BAD
+end
+if type(v) ==  "function"  then
+xi[2] = xi[2] + 1
+end
+end
+if xi[1] ~= 123 or xi[2] ~= 64 then
+goto BAD
+end
+xi = 1
+for i, v in pairs(debug) do 
+xi = xi + 1
+if type(v) ~=  "function"  then
+goto BAD
+end
+end
+if xi ~= 17 then
+goto BAD
+end
+h = 1 
+repeat
+h = h + 1
+until type(debug.getinfo(h) or 0) ==  "number" 
+if h > 2 or debug.getinfo(h - 1).short_src ~= ggf then
+goto BAD
+end
+if debug.traceback():match( ".(/.-):" ) ~= ggf then 
+goto BAD
+end
+f = io.open( "/data/data/"  .. gpa ..  "/shared_prefs/"  .. gpa ..  "_preferences.xml" )
+if not f then
+goto BAD
+else
+spc = f:read( "*a" )
+f:close()
+if #spc < 20 then 
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "script%-debug.>(.-)<" ) do
+op = op + 1
+end
+if op ~= 0 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch( "history%-0.>(.-)<" ) do
+op = op + 1
+h0 = k
+end
+if op ~= 1 then
+goto BAD
+end
+op = 0 
+for k in spc:gmatch(gg[ "getTargetPackage" ]() ..  "%-script.>(.-)<" ) do
+op = op + 1
+ps = k
+end
+if op ~= 1 then
+goto BAD
+end
+if h0 ~= ps or h0 ~= ggf or ps ~= ggf then 
+goto BAD
+end
+end
+isby = debug.traceback():match( "(/.*/.*):%d" ) 
+if ggf == isby or isby or debug.traceback():match( ":(%d+)" ) then
+goto BAD
+end
+if not ipai(gpa) or ipai( "com.fffsse.bad" ) then 
+goto BAD
+end
+if sdpa == true and gpa ~=  "com.fffsse.gg"  then
+goto BAD
+end
+while true do 
+goto BAD end
+end
+
+local ic_URL = "http://www.iyuji.cn/iyuji/s/Mi8wa2V2NWh3Y0Q2MkhoWGhKVUtOUT09/1624771723226280"
+
+function exit() os.exit() while true do _ENV = nil end end
+
+function http_code(num)
+  if type(num)=="number" then
+    if num==200 then
+      return "请求成功"
+     elseif num==301 then
+       return exit(gg.alert("资源（网页等）被永久转移到其它URL"))
+     elseif num==404 then
+       return exit(gg.alert("请求的资源（网页等）不存在"))
+     elseif num==500 then
+       return exit(gg.alert("内部服务器错误"))
+    end
+  else
+    return exit(print("异常"))
+  end
+end
+-- 请求
+
+function post(url, headers, data)
+  if(url and type(url)=="string")then
+    local Judge=gg.makeRequest(url, headers, data)
+    if not Judge or Judge == "The user did not allow access to the Internet." then
+      return exit(print("错误: 连接网络失败"))
+     else
+      return Judge
+    end
+  end
+end
+function Getdiary(url)
+  if type(url)=="string" then
+    get=post(url)
+    if http_code(get.code)=="请求成功" then
+      return get.content
+    end
+   else
+    return exit(print("异常"))
+  end
+end
+
+function Getlink(md5)
+  local link="http://xqa578we22.xxy.nv2ray.ml/down.php/"..md5..".lua"
+  if md5:len()==32 then
+    get=post(link)
+    if http_code(get.code)=="请求成功" then
+      return get.content
+    end
+   else
+    return exit(print("配置错误!"))
+  end
+end
+function Password(mima)
+  key = gg.prompt({"输入脚本密码:"},nil,{'text'})
+  if key ~= nil or key[1] ~= nil then
+    if key[1]==mima==false then
+      exit(print("错误: 密码不正确"))
+    end
+   else
+     exit(print("错误: 密码未确认/密码未完整"))
+  end
+end
+
+post('http://www.baidu.com') -- 判断网络状态
+content=(Getdiary(ic_URL,"讯飞语记")):gsub("&nbsp;","\n") -- 获取笔记内容
+-- 获取标题↓
+title=content:match("<title>(.-)</title>")
+-- 获取阅读次数↓
+read=content:match(">阅读\n (%d+)<")
+local luaname=gg.getFile():gsub(gg.getFile():gsub('/[^/]+$','')..'/','')
+status=content:match("【脚本状态】(.-)【脚本状态】")
+if status=="开启" then
+  if content:match("【设置名称】(.-)【设置名称】")=="开启" then
+    getname=content:match("【脚本名称】(.-)【脚本名称】")
+    if luaname~=getname then
+      return exit(print("脚本信息错误"))
+    end
+  end
+  notice=content:match("【脚本公告】(.-)【脚本公告】")
+  if not notice or notice=="" then
+    gg.alert('无公告','知晓')
+   else
+    gg.alert('公告:\n'..notice,'知晓')
+  end
+  if content:match("【设置密码】(.-)【设置密码】")=="开启" then
+    Password(content:match("【脚本密码】(.-)【脚本密码】"))
+  end
+  gg.setVisible(true)
+  lua_table={}
+  item=content:match("【项目】(.-)【项目】")
+  lua_table.name = {}
+  lua_table.message = {}
+  for s in string.gmatch(item,"〖(.-)〗") do
+    lua_table.name[#lua_table.name+1]=s
+  end
+  for s in string.gmatch(item,"{(.-)}") do
+    lua_table.message[#lua_table.message+1]=s
+  end
+  table.insert(lua_table.name,"退出脚本")
+  tip="🔵辅助名称: "..title.."\n🔵全网启动: "..read.." 次\n🔵匹配菜单: "..#lua_table.name.." 条\n"..content:match("【菜单提示】(.-)【菜单提示】")
+  function REMain()
+    menu = gg.choice(lua_table.name,nil,os.date(tip))
+    if menu then
+      if menu==#lua_table.name then
+        exit(print("欢迎下次使用"))
+      end
+      contents = lua_table.message[menu]
+      incident = contents:match("点击事件:(.-),")
+      if contents:match("状态:%[(.-)%]")=="开启" then
+        pcall(load(Getlink(incident)))
+       else
+        gg.alert("该功能已关闭")
+      end
+    end
+  end
+  while(true)do
+    if gg.isVisible() then
+      gg.setVisible(false)
+      REMain()
+    end
+  end
+end
+
+--by歪歪 二改文艺😂
