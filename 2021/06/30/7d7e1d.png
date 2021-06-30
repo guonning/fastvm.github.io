@@ -1,0 +1,104 @@
+mima = "B1288"
+v_value = gg.prompt({
+  "欢迎使用e内部"
+}, {
+  [1] = 0
+}, {
+  [1] = "请输入卡密"
+})
+function mi()
+  print("e内部官方Q群")
+end
+function end_c()
+  print("卡密错误")
+  os.exit()
+end
+if v_value[1] == mima then
+  mi()
+else
+end_c()
+end
+function PS() end
+function setvalue(address,flags,value) PS('修改地址数值(地址,数值类型,要修改的值)') local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+function Main()
+  SN = gg.choice({
+  "全图透视",
+  "大厅防封",
+  "上帝视角";
+"退出"
+ }, nil, "e内部")
+  if SN == 1 then
+    a()
+  end
+  if SN == 2 then
+   b()
+  end
+  if SN == 3 then
+   c()
+  end
+  if SN == 4 then
+   Exit()
+  end
+  XGCK = -1
+end
+
+
+
+function a()
+so=gg.getRangesList('libGameCore.so')[1].start
+py=0x188306C
+setvalue(so+py,4,-476028927)
+gg.toast("全图透视开启成功")
+end
+
+
+
+function b()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("3014707;3473462;3211310;3538990;8",  gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("3538990", gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0,-1)
+gg.getResults(50)
+gg.editAll("3604526",gg.TYPE_DWORD)
+gg.toast("防封开启成功")
+end
+
+
+function c()
+so=gg.getRangesList('libunity.so')[1].start
+py=0x324090
+setvalue(so+py,16,270)
+gg.toast("上帝视角开启成功")
+end
+
+
+
+
+
+function Exit()
+print("741481767")
+os.exit()
+end
+cs = "741481767"
+
+
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XGCK == 1 then
+    Main()
+  end
+end
+
+
+
+
+
+
+
+
+
